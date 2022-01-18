@@ -4,6 +4,10 @@ This repository contains materials prepared by myself and collected over the int
 Recommended video course:
 [Pluralsight: Kubernetes for developers](https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents)
 
+### When Kubernetes is worth?
+* New devs onboarding.
+* You can eliminate Application conflicts. (You can run multiple versions of one application simultaneously)
+
 ## Initial Information about Kubernetes itself
 
 <details>
@@ -30,4 +34,19 @@ Recommended video course:
 3) kubernetes in docker (kind) - install kubernetes right in docker desktop application. and you can use all commands from kubectl
 4) kubeadm - full version of k8s running locally
   
+</details>
+
+## KubeCTL commands
+
+<details>
+<summary>Commands with parameters:</summary>
+  
+kubectl version
+kubectl cluster-info
+kubectl gel all (retrieve all inf about pods, deployments...)
+kubectl run [cont-name] --image=[image-name]
+kubectl port-forward [pod] [ports] - configure your proxy to expose your POD.
+kubectl expose (expose your ports)
+kubectl create [resource] - create resource in k8s based on yml file
+kubectl apply [res] - create or MODIFY EXISTING
 </details>
