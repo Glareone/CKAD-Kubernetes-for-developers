@@ -41,12 +41,12 @@ Recommended video course:
 <details>
 <summary>Commands with parameters:</summary>
   
-kubectl version
-kubectl cluster-info
-kubectl gel all (retrieve all inf about pods, deployments...)
-kubectl run [cont-name] --image=[image-name]
-kubectl port-forward [pod] [ports] - configure your proxy to expose your POD.
-kubectl expose (expose your ports)
-kubectl create [resource] - create resource in k8s based on yml file
-kubectl apply [res] - create or MODIFY EXISTING
-</details>
+kubectl version  
+kubectl cluster-info  
+kubectl gel all (retrieve all inf about pods, deployments...)  
+kubectl run [cont-name] --image=[image-name]  
+kubectl port-forward [pod] [ports] - configure your proxy to expose your POD.  
+kubectl expose (expose your ports)  
+kubectl create [resource] - create resource in k8s based on yml file  
+kubectl apply [res] - create or MODIFY EXISTING  
+</details>  
