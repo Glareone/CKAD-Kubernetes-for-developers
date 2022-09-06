@@ -4,9 +4,15 @@ This repository contains materials prepared by myself and collected over the int
 Recommended video course:
 [Pluralsight: Kubernetes for developers](https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents)
 
+
+
 ### When Kubernetes is worth?
 * New devs onboarding.
 * You can eliminate Application conflicts. (You can run multiple versions of one application simultaneously)
+
+## Kubernetes new instance creation algorithm 
+![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
+
 
 ## Initial Information about Kubernetes itself
 
