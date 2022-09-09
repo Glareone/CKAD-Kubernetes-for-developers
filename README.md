@@ -56,3 +56,23 @@ kubectl expose (expose your ports)
 kubectl create [resource] - create resource in k8s based on yml file  
 kubectl apply [res] - create or MODIFY EXISTING  
 </details>  
+
+# Kubernetes PODS
+
+## What happened when you create a POD?
+
+Link: [Comprehensive article on medium](https://medium.com/@karthikeyan_krishnaswamy/overview-of-kubernetes-34d8e0e59b26)
+
+![image](https://user-images.githubusercontent.com/4239376/189322111-652e11f7-4c51-4b63-b2b9-82b43f67554d.png)
+
+1. kubectl writes to the API Server.
+2. API Server validates the request and persists it to etcd.
+3. etcd notifies back the API Server.
+4. API Server invokes the Scheduler.
+5. Scheduler decides where to run the pod on and return that to the API Server.
+6. API Server persists it to etcd.
+7. etcd notifies back the API Server.
+8. API Server invokes the Kubelet in the corresponding node.
+9. Kubelet talks to the Docker daemon using the API over the Docker socket to create the container.
+10. Kubelet updates the pod status to the API Server.
+11. API Server persists the new state in etcd.
