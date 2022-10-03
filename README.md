@@ -8,11 +8,14 @@ Video Course with a good intro about Docker and Docker runtime: [Oreilly CKAD: C
 # Docker Intro and useful materials
 
 <details>
-<summary>Docker. busybox</summary>
+<summary>Docker. busybox. Docker commands</summary>
 
 busybox - is a minimal linux container to emulate workload. if you type the command without `-it` it immediately stops because container doesnt know what to do, there is no application inside.
 
 > docker run -it busybox
+
+to inspect what's happening within the container:  
+> docker inspect <ID> | less
 
 </details>
 
