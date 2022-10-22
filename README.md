@@ -89,3 +89,12 @@ Link: [Comprehensive article on medium](https://medium.com/@karthikeyan_krishnas
 9. Kubelet talks to the Docker daemon using the API over the Docker socket to create the container.
 10. Kubelet updates the pod status to the API Server.
 11. API Server persists the new state in etcd.
+
+# Kubernetes Persistent Storages. Volumes. Azure Shared Disks
+
+![image](https://user-images.githubusercontent.com/4239376/197339361-f2862df2-ac3b-461d-aa31-80cb1077c911.png)  
+Article: https://learn.microsoft.com/en-us/azure/aks/concepts-storage
+
+* Nowadays, you may start sharing Azure Shared between nodes and pods (but only for Premium disks):
+https://stackoverflow.com/questions/67078009/is-it-possible-to-mount-a-shared-azure-disk-in-azure-kubernetes-to-multiple-pods  
+![image](https://user-images.githubusercontent.com/4239376/197342695-cb7217d0-20c0-4021-8f1c-fea066b0ef0b.png)
