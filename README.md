@@ -100,3 +100,6 @@ https://stackoverflow.com/questions/67078009/is-it-possible-to-mount-a-shared-az
 ![image](https://user-images.githubusercontent.com/4239376/197342695-cb7217d0-20c0-4021-8f1c-fea066b0ef0b.png)
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: Azure Disks, Azure Files, Azure NetApp Files, or Azure Blobs.
+
+ # Deployment strategies. Blue-green, Canary, A\B, Multi-service
+ ![image](https://user-images.githubusercontent.com/4239376/197362803-243e0580-737f-4042-8cf0-1ed7ab0173c8.png)
