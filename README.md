@@ -91,6 +91,13 @@ Link: [Comprehensive article on medium](https://medium.com/@karthikeyan_krishnas
 10. Kubelet updates the pod status to the API Server.
 11. API Server persists the new state in etcd.
 
+# Kubernetes User
+Kubernetes user is just a connection to some certificates
+
+![image](https://user-images.githubusercontent.com/4239376/204151637-885120e5-4cb5-4e07-87e0-c13720917e3e.png)
+
+  It means Kubectl doesnt need you to log in, just need the certificates to be set in an appropriate way
+  
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
 ![image](https://user-images.githubusercontent.com/4239376/197339361-f2862df2-ac3b-461d-aa31-80cb1077c911.png)  
