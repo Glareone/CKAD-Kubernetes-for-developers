@@ -108,6 +108,12 @@ to inspect what's happening within the container:
 
   ![image](https://user-images.githubusercontent.com/4239376/204151154-1ef581e5-fd5a-475d-890a-06d8aef509b0.png)
 </details>
+
+<details>
+<summary>Managing pods. Kubectl run - runs deployment, not pod itself</summary> 
+
+  ![image](https://user-images.githubusercontent.com/4239376/204153571-489a4efc-ef8f-4cd7-872b-5818643c3dfe.png)
+</details>
   
 <details>
 <summary>Commands with parameters:</summary>
