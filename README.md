@@ -28,14 +28,13 @@ to inspect what's happening within the container:
 <summary>Kubernetes application instance creation diagram</summary>
   
   ![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
-
 </details>
 
 ## Kubernetes PODS
 ### What happened when you create a POD?
 Link: [What happened when you create a POD. Comprehensive article on medium](https://medium.com/@karthikeyan_krishnaswamy/overview-of-kubernetes-34d8e0e59b26)
 
-  <details>
+<details>
 <summary>Pod Lifecycle diagram and list of steps</summary>
     
 ![image](https://user-images.githubusercontent.com/4239376/189322111-652e11f7-4c51-4b63-b2b9-82b43f67554d.png)
@@ -51,7 +50,6 @@ Link: [What happened when you create a POD. Comprehensive article on medium](htt
 9. Kubelet talks to the Docker daemon using the API over the Docker socket to create the container.
 10. Kubelet updates the pod status to the API Server.
 11. API Server persists the new state in etcd.
-
 </details>
     
 ## Kubernetes building Blocks
@@ -81,9 +79,9 @@ Link: [What happened when you create a POD. Comprehensive article on medium](htt
   
 </details>
 
-## Kubernetes User. Kubernetes Configuration.
+## Kubernetes User. RBAC. Authorization Authentication
 <details>
-<summary>Kubernetes User</summary>
+<summary>Kubernetes User and user configuration. kubectl config view</summary>
    Kubernetes user is just a connection to some certificates
 
 ![image](https://user-images.githubusercontent.com/4239376/204151637-885120e5-4cb5-4e07-87e0-c13720917e3e.png)
@@ -91,10 +89,20 @@ Link: [What happened when you create a POD. Comprehensive article on medium](htt
   It means Kubectl doesnt need you to log in, just need the certificates to be set in an appropriate way.
   These certificaets lie among other things in hidden .kube config directory
 </details>  
+ 
+<details>
+<summary>Authorization. kubectl auth can-i</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/204152410-fa776576-ddd9-4550-a54a-de38a59b813d.png)
+</details>
   
+# Kubectl. Kubectl commands under the hood: curl.
   
-# Kubectl. Kubectl commands
-![image](https://user-images.githubusercontent.com/4239376/204151154-1ef581e5-fd5a-475d-890a-06d8aef509b0.png)
+<details>
+<summary>kubectl is just a curl</summary> 
+
+  ![image](https://user-images.githubusercontent.com/4239376/204151154-1ef581e5-fd5a-475d-890a-06d8aef509b0.png)
+</details>
   
 <details>
 <summary>Commands with parameters:</summary>
