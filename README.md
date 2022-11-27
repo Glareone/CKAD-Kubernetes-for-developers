@@ -31,8 +31,13 @@ to inspect what's happening within the container:
 </details>
 
 ## Kubernetes PODS
-### What happened when you create a POD?
-Link: [What happened when you create a POD. Comprehensive article on medium](https://medium.com/@karthikeyan_krishnaswamy/overview-of-kubernetes-34d8e0e59b26)
+<details>
+<summary>Kubernetes Pod. Brief Explanation</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/204153391-2192ab2f-9f84-4bef-8e78-f084d1432ba0.png)
+</details>
+
+[What happened when you create a POD. Comprehensive article on medium](https://medium.com/@karthikeyan_krishnaswamy/overview-of-kubernetes-34d8e0e59b26)
 
 <details>
 <summary>Pod Lifecycle diagram and list of steps</summary>
