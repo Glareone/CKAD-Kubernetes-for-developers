@@ -55,7 +55,8 @@ to inspect what's happening within the container:
   
 </details>
 
-## KubeCTL commands
+## Kubectl. Kubectl commands
+![image](https://user-images.githubusercontent.com/4239376/204151041-dc59afe2-1a45-4213-92e3-a06b1629fdfc.png)
 
 <details>
 <summary>Commands with parameters:</summary>
