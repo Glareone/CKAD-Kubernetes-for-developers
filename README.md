@@ -18,65 +18,26 @@ to inspect what's happening within the container:
 > docker inspect <ID> | less
 
 </details>
-
+  
+# Kubernetes. General Information. About Kubernetes itself
 ### When Kubernetes is worth?
 * New devs onboarding.
 * You can eliminate Application conflicts. (You can run multiple versions of one application simultaneously)
 
-## Kubernetes new instance creation algorithm 
-![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
-
-
-## Initial Information about Kubernetes itself
-
 <details>
-<summary>Cluster, Internal Structure, Building Blocks, State Management</summary>
-
-  ![1 Cluster](https://user-images.githubusercontent.com/4239376/149999683-875c45bd-503e-4f96-bbca-4490e94fdbe8.png)  
-  ![2 state management](https://user-images.githubusercontent.com/4239376/150000162-71be084d-1a6b-409e-9239-63827c6f6e96.png)  
-  ![3 pod](https://user-images.githubusercontent.com/4239376/150000193-9174b15d-6fb2-42e0-a107-5114cbbf970a.png)  
-  ![4 K8s Building blocks](https://user-images.githubusercontent.com/4239376/150000219-c4d8705a-f7d3-4eb4-8189-50aa15ca9e1c.png)  
-  ![5 Node - virtual machines + agents](https://user-images.githubusercontent.com/4239376/150000241-ba7e45f7-fb21-4b87-9724-936ea352a57b.png) 
-  ![6 K8s interfaces](https://user-images.githubusercontent.com/4239376/150000271-eea554dc-1d57-4fc4-8452-d62860c34b2e.png)
-  ![7 Node agents](https://user-images.githubusercontent.com/4239376/150000291-26f1c468-a373-48fb-958d-ae84612224b2.png)
-  ![8 Kubernetes in docker](https://user-images.githubusercontent.com/4239376/150000309-b0ebc220-f4f5-461b-bfda-4d0ddab7241b.png)
+<summary>Kubernetes application instance creation diagram</summary>
+  
+  ![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
 
 </details>
 
-## Running Kubernetes Locally
+## Kubernetes PODS
+### What happened when you create a POD?
+Link: [What happened when you create a POD. Comprehensive article on medium](https://medium.com/@karthikeyan_krishnaswamy/overview-of-kubernetes-34d8e0e59b26)
 
-<details>
-<summary>Options to run Kubernetes locally:</summary>
-
-1) minikube (little version of K8s, but with full list of abilities from the full version) - but should have only one master node
-2) docker desktop
-3) kubernetes in docker (kind) - install kubernetes right in docker desktop application. and you can use all commands from kubectl
-4) kubeadm - full version of k8s running locally
-  
-</details>
-
-## Kubectl. Kubectl commands
-![image](https://user-images.githubusercontent.com/4239376/204151154-1ef581e5-fd5a-475d-890a-06d8aef509b0.png)
-  
-<details>
-<summary>Commands with parameters:</summary>
-  
-kubectl version  
-kubectl cluster-info  
-kubectl gel all (retrieve all inf about pods, deployments...)  
-kubectl run [cont-name] --image=[image-name]  
-kubectl port-forward [pod] [ports] - configure your proxy to expose your POD.  
-kubectl expose (expose your ports)  
-kubectl create [resource] - create resource in k8s based on yml file  
-kubectl apply [res] - create or MODIFY EXISTING  
-</details>  
-
-# Kubernetes PODS
-
-## What happened when you create a POD?
-
-Link: [Comprehensive article on medium](https://medium.com/@karthikeyan_krishnaswamy/overview-of-kubernetes-34d8e0e59b26)
-
+  <details>
+<summary>Pod Lifecycle diagram and list of steps</summary>
+    
 ![image](https://user-images.githubusercontent.com/4239376/189322111-652e11f7-4c51-4b63-b2b9-82b43f67554d.png)
 
 1. kubectl writes to the API Server.
@@ -91,12 +52,62 @@ Link: [Comprehensive article on medium](https://medium.com/@karthikeyan_krishnas
 10. Kubelet updates the pod status to the API Server.
 11. API Server persists the new state in etcd.
 
-# Kubernetes User
-Kubernetes user is just a connection to some certificates
+</details>
+    
+## Kubernetes building Blocks
+
+<details>
+<summary>Cluster, Internal Structure, Building Blocks, State Management</summary>
+
+  ![1 Cluster](https://user-images.githubusercontent.com/4239376/149999683-875c45bd-503e-4f96-bbca-4490e94fdbe8.png)  
+  ![2 state management](https://user-images.githubusercontent.com/4239376/150000162-71be084d-1a6b-409e-9239-63827c6f6e96.png)  
+  ![3 pod](https://user-images.githubusercontent.com/4239376/150000193-9174b15d-6fb2-42e0-a107-5114cbbf970a.png)  
+  ![4 K8s Building blocks](https://user-images.githubusercontent.com/4239376/150000219-c4d8705a-f7d3-4eb4-8189-50aa15ca9e1c.png)  
+  ![5 Node - virtual machines + agents](https://user-images.githubusercontent.com/4239376/150000241-ba7e45f7-fb21-4b87-9724-936ea352a57b.png) 
+  ![6 K8s interfaces](https://user-images.githubusercontent.com/4239376/150000271-eea554dc-1d57-4fc4-8452-d62860c34b2e.png)
+  ![7 Node agents](https://user-images.githubusercontent.com/4239376/150000291-26f1c468-a373-48fb-958d-ae84612224b2.png)
+  ![8 Kubernetes in docker](https://user-images.githubusercontent.com/4239376/150000309-b0ebc220-f4f5-461b-bfda-4d0ddab7241b.png)
+</details>
+
+## Running Kubernetes Locally
+
+<details>
+<summary>Options to run Kubernetes locally:</summary>
+
+1) minikube (little version of K8s, but with full list of abilities from the full version) - but should have only one master node
+2) docker desktop
+3) kubernetes in docker (kind) - install kubernetes right in docker desktop application. and you can use all commands from kubectl
+4) kubeadm - full version of k8s running locally
+  
+</details>
+
+## Kubernetes User. Kubernetes Configuration.
+<details>
+<summary>Kubernetes User</summary>
+   Kubernetes user is just a connection to some certificates
 
 ![image](https://user-images.githubusercontent.com/4239376/204151637-885120e5-4cb5-4e07-87e0-c13720917e3e.png)
 
-  It means Kubectl doesnt need you to log in, just need the certificates to be set in an appropriate way
+  It means Kubectl doesnt need you to log in, just need the certificates to be set in an appropriate way.
+  These certificaets lie among other things in hidden .kube config directory
+</details>  
+  
+  
+# Kubectl. Kubectl commands
+![image](https://user-images.githubusercontent.com/4239376/204151154-1ef581e5-fd5a-475d-890a-06d8aef509b0.png)
+  
+<details>
+<summary>Commands with parameters:</summary>
+  
+kubectl version  
+kubectl cluster-info  
+kubectl gel all (retrieve all inf about pods, deployments...)  
+kubectl run [cont-name] --image=[image-name]  
+kubectl port-forward [pod] [ports] - configure your proxy to expose your POD.  
+kubectl expose (expose your ports)  
+kubectl create [resource] - create resource in k8s based on yml file  
+kubectl apply [res] - create or MODIFY EXISTING  
+</details>   
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
