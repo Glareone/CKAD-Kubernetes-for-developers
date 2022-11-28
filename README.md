@@ -177,5 +177,12 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
 - OR `kubectl get deployment nginx-run -o yaml > your-new-deployment-file.yaml` to send all yaml config to new file
 
 </details>
+  
+<details>
+<summary>Create namespace using declarative way</summary>
+  
+`kubectl create ns production -o yaml` - will create a namespace and show yaml structure it uses. 
+  we may copy the output and using vim put it into yaml file, then use it for Namespace creation
+</details>
 
 
