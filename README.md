@@ -182,9 +182,13 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
 <summary>Create namespace using declarative way</summary>
   
 `kubectl create ns production -o yaml` - will create a namespace and show yaml structure it uses. 
-  we may copy the output and using vim put it into yaml file, then use it for Namespace creation  
-    
+  we may copy the output and using vim put it into yaml file, then use it for Namespace creation.
+  
+`kubectl delete namespaces production`  - to delete already created namespace
+  
 `kubectl create ns production -o yaml > ns-file.yaml` is also applicable
+  
+  * to avoid any creation we may use `dry-run` like in the following example `kubectl run --generator=run-pod/v1 nginx-prod --image nginx -o yaml  -dry-run=true > file.yaml`.
 </details>
 
 
