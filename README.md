@@ -30,7 +30,7 @@ to inspect what's happening within the container:
   ![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
 </details>
 
-## Kubernetes PODS
+## Pods
 <details>
 <summary>Kubernetes Pod. Brief Explanation</summary>
 
@@ -68,6 +68,14 @@ Sidecar example:
 * Instead of busy box it could be your database. The sidecar in this scenario may limit the amount of logs you want to expose.
 
 ![image](https://user-images.githubusercontent.com/4239376/204358240-fb8162f6-aa40-4629-b386-1466e135ff4a.png)
+</details>
+  
+## Namespaces
+  
+<details>
+<summary>Multi-container pod. Good scenarios to run multiple containers in one pod.Sidecar.</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/204359995-49432951-70df-4b7e-b1f2-0701847fff6d.png)
 </details>
   
 ## Kubernetes building Blocks
