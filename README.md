@@ -149,6 +149,12 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 
 You may use `kubectl run` and then export deployment to yaml file, change it and use `kube apply`
  ![image](https://user-images.githubusercontent.com/4239376/204347366-d6385bc2-0d9e-4b0d-8d75-818a2d010536.png)
+  
+- `kubectl get deployments` and check what deployments you already have. Find general one
+- if no good candidates - run `kubectl run nginx-run --image nginx`
+- `kubectl get deployments nginx-run -o yaml` and get formatted configuration
+- OR `kubectl get deployments nginx-run -o yaml > your-new-deployment-file.yaml` to send all yaml config to new file
+
 </details>
 
 
