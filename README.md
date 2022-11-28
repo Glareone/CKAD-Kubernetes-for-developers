@@ -56,7 +56,20 @@ to inspect what's happening within the container:
 10. Kubelet updates the pod status to the API Server.
 11. API Server persists the new state in etcd.
 </details>
-    
+  
+<details>
+<summary>Multi-container pod. Good scenarios to run multiple containers in one pod.Sidecar.</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/204357555-59fe745c-e0ba-4300-a3dd-ae9aeab8c8d7.png)
+![image](https://user-images.githubusercontent.com/4239376/204357834-afde819f-c018-4833-8367-d6bb767564c6.png)
+
+Sidecar example:
+* One container generates logs (busy box), another one exposes the logs(sidecar). 
+* Instead of busy box it could be your database. The sidecar in this scenario may limit the amount of logs you want to expose.
+
+![image](https://user-images.githubusercontent.com/4239376/204358240-fb8162f6-aa40-4629-b386-1466e135ff4a.png)
+</details>
+  
 ## Kubernetes building Blocks
 
 <details>
