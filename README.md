@@ -152,8 +152,8 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
   
 - `kubectl get deployments` and check what deployments you already have. Find general one
 - if no good candidates - run `kubectl run nginx-run --image nginx`
-- `kubectl get deployments nginx-run -o yaml` and get formatted configuration
-- OR `kubectl get deployments nginx-run -o yaml > your-new-deployment-file.yaml` to send all yaml config to new file
+- `kubectl get deployment nginx-run -o yaml` and get formatted configuration
+- OR `kubectl get deployment nginx-run -o yaml > your-new-deployment-file.yaml` to send all yaml config to new file
 
 </details>
 
