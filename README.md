@@ -182,7 +182,9 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
 <summary>Create namespace using declarative way</summary>
   
 `kubectl create ns production -o yaml` - will create a namespace and show yaml structure it uses. 
-  we may copy the output and using vim put it into yaml file, then use it for Namespace creation
+  we may copy the output and using vim put it into yaml file, then use it for Namespace creation  
+    
+`kubectl create ns production -o yaml > ns-file.yaml` is also applicable
 </details>
 
 
