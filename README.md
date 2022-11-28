@@ -73,7 +73,7 @@ Sidecar example:
 ## Namespaces
   
 <details>
-<summary>Multi-container pod. Good scenarios to run multiple containers in one pod.Sidecar.</summary>
+<summary>Kubernetes Namespace. General info</summary>
   
 ![image](https://user-images.githubusercontent.com/4239376/204359995-49432951-70df-4b7e-b1f2-0701847fff6d.png)
 </details>
