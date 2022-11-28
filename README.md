@@ -126,7 +126,7 @@ kubectl port-forward [pod] [ports] - configure your proxy to expose your POD.
 kubectl expose (expose your ports)  
 kubectl create [resource] - create resource in k8s based on yml file  
 kubectl apply [res] - create or MODIFY EXISTING  
-</details>   
+</details>
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
@@ -139,5 +139,16 @@ https://stackoverflow.com/questions/67078009/is-it-possible-to-mount-a-shared-az
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: Azure Disks, Azure Files, Azure NetApp Files, or Azure Blobs.
 
- # Deployment strategies. Blue-green, Canary, A\B, Multi-service
+# Deployment strategies. Blue-green, Canary, A\B, Multi-service
  ![image](https://user-images.githubusercontent.com/4239376/197362803-243e0580-737f-4042-8cf0-1ed7ab0173c8.png)
+ 
+# Exam. Tip & Tricks.
+
+<details>
+<summary>How to get initial deployment file</summary>
+
+You may use `kubectl run` and then export deployment to yaml file, change it and use `kube apply`
+ ![image](https://user-images.githubusercontent.com/4239376/204347366-d6385bc2-0d9e-4b0d-8d75-818a2d010536.png)
+</details>
+
+
