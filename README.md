@@ -139,21 +139,27 @@ Sidecar example:
 <details>
 <summary>Commands with parameters:</summary>
   
-kubectl version  
-kubectl cluster-info  
-kubectl gel all (retrieve all inf about pods, deployments...)  
-kubectl run [cont-name] --image=[image-name]  
-kubectl port-forward [pod] [ports] - configure your proxy to expose your POD.  
-kubectl expose (expose your ports)  
-kubectl create [resource] - create resource in k8s based on yml file  
-kubectl apply [res] - create or MODIFY EXISTING  
+`kubectl version`  
+`kubectl cluster-info`  
+`kubectl gel all` - retrieve all inf about pods, deployments, etc.  
+`kubectl run [cont-name] --image=[image-name]`  
+`kubectl port-forward [pod] [ports]` - configure your proxy to expose your POD.  
+`kubectl expose` - expose your ports  
+`kubectl create [resource]` - create resource in k8s based on yml file  
+`kubectl apply [res]` - create or MODIFY EXISTING  
+  
+1. `kubectl run` vs `kubectl create` - in general run is imperative command, kubectl create is declarative way. `kubectl run` is deprecated.
+2. `kubectl run` - created deployment, not directly a pod. after running `kubectl run` respective deployment will not be saved.
 </details>
 
 <details>
 <summary>Kubectl describe vs kubectl logs vs kubectl exec</summary>
 
 * kubectl describe goes to etcd database and returns configurations
-* kubectl logs goes on pods level in order to receive logs coming from containers
+* kubectl logs goes on pods level in order to receive logs coming from containers  
+  
+`kubectl logs YOUR_POD_NAME_IN_DEFAULT_NAMESPACE` or `kubectl logs YOUR_POD -n YOUR_NAMESPACE`
+  
 * kubectl is for executing commands on container level. If you have multiple containers under pod - you also need to specify the container's name
 
 ![image](https://user-images.githubusercontent.com/4239376/204894819-8732557b-da5f-4c43-b93a-f762869d5567.png)
