@@ -157,6 +157,10 @@ kubectl apply [res] - create or MODIFY EXISTING
 * kubectl is for executing commands on container level. If you have multiple containers under pod - you also need to specify the container's name
 
 ![image](https://user-images.githubusercontent.com/4239376/204894819-8732557b-da5f-4c43-b93a-f762869d5567.png)
+  
+* kubectl exec might also be useful in inspect the container from inside the pod
+  ![image](https://user-images.githubusercontent.com/4239376/204895479-628fb92f-df91-4ae9-8007-5946181f1359.png)
+
 </details>
 
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
