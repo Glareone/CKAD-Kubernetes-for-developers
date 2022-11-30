@@ -158,7 +158,7 @@ Sidecar example:
 * kubectl describe goes to etcd database and returns configurations
 * kubectl logs goes on pods level in order to receive logs coming from containers  
   
-`kubectl logs YOUR_POD_NAME_IN_DEFAULT_NAMESPACE` or `kubectl logs YOUR_POD -n YOUR_NAMESPACE`
+`kubectl logs [POD_NAME_IN_DEFAULT_NAMESPACE]` or `kubectl logs [YOUR_POD] -n [YOUR_NAMESPACE]`
   
 * kubectl is for executing commands on container level. If you have multiple containers under pod - you also need to specify the container's name
 
@@ -166,6 +166,8 @@ Sidecar example:
   
 * kubectl exec might also be useful in inspect the container from inside the pod
   ![image](https://user-images.githubusercontent.com/4239376/204895479-628fb92f-df91-4ae9-8007-5946181f1359.png)  
+`kubectl exec -it [POD_NAME] -n [NAMESPACE]  -- sh`  
+  
 PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ctrl-q`
   
 </details>
