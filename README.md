@@ -102,9 +102,8 @@ Sidecar example:
   
 * Simple example of a job  
 ![image](https://user-images.githubusercontent.com/4239376/204906540-6e4b43c4-5b48-4079-b662-e7bb9c058211.png)
+![image](https://user-images.githubusercontent.com/4239376/204914770-d0ccc7ac-1263-4e39-b7b3-778d5957d06f.png)
 </details>
-  
-
   
 # Running Kubernetes Locally
 
