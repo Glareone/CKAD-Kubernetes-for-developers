@@ -20,7 +20,7 @@ to inspect what's happening within the container:
 </details>
   
 # Kubernetes. General Information. About Kubernetes itself
-### When Kubernetes is worth?
+#### When Kubernetes is worth?
 * New devs onboarding.
 * You can eliminate Application conflicts. (You can run multiple versions of one application simultaneously)
 
@@ -30,7 +30,7 @@ to inspect what's happening within the container:
   ![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
 </details>
 
-## Pods
+#### Pods
 <details>
 <summary>Kubernetes Pod. Brief Explanation</summary>
 
@@ -70,7 +70,7 @@ Sidecar example:
 ![image](https://user-images.githubusercontent.com/4239376/204358240-fb8162f6-aa40-4629-b386-1466e135ff4a.png)
 </details>
   
-## Namespaces
+#### Namespaces
   
 <details>
 <summary>Kubernetes Namespace. General info</summary>
@@ -78,7 +78,7 @@ Sidecar example:
 ![image](https://user-images.githubusercontent.com/4239376/204359995-49432951-70df-4b7e-b1f2-0701847fff6d.png)
 </details>
   
-## Kubernetes building Blocks
+#### Kubernetes building Blocks
 
 <details>
 <summary>Cluster, Internal Structure, Building Blocks, State Management</summary>
@@ -105,7 +105,7 @@ Sidecar example:
   
 </details>
 
-## Kubernetes User. RBAC. Authorization Authentication
+## Kubernetes User. RBAC. Authorization Authentication. Security Context.
 <details>
 <summary>Kubernetes User and user configuration. kubectl config view</summary>
    Kubernetes user is just a connection to some certificates
@@ -120,6 +120,13 @@ Sidecar example:
 <summary>Authorization. kubectl auth can-i</summary>
 
 ![image](https://user-images.githubusercontent.com/4239376/204152410-fa776576-ddd9-4550-a54a-de38a59b813d.png)
+</details>
+  
+<details>
+<summary>Security Context</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/204904649-9702e8cd-1dc7-402b-9a81-59bc09f5e1de.png)
+![image](https://user-images.githubusercontent.com/4239376/204904870-5de6e9db-c691-446a-bc0a-1f50cbdcb405.png)
 </details>
   
 # Kubectl. Kubectl commands under the hood: curl.
