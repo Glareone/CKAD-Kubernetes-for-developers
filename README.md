@@ -166,9 +166,9 @@ Sidecar example:
   
 * kubectl exec might also be useful in inspect the container from inside the pod
   ![image](https://user-images.githubusercontent.com/4239376/204895479-628fb92f-df91-4ae9-8007-5946181f1359.png)  
-`kubectl exec -it [POD_NAME] -n [NAMESPACE]  -- sh`  
+`kubectl exec -it [POD_NAME] -n [NAMESPACE]  -- sh` - as an example
   
-PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ctrl-q`
+PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ctrl-q`. in Azure CLI you can exit using `exit` command.
   
 </details>
 
