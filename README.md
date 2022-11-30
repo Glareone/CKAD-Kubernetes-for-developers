@@ -143,6 +143,7 @@ Sidecar example:
 `kubectl cluster-info`  
 `kubectl gel all` - retrieve all inf about pods, deployments, etc.  
   - you also can use `-o wide` parameter to see extra information
+  - `--show-labels` labels attached to pods will be shown. They will help you identify pods
 
 `kubectl run [cont-name] --image=[image-name]`  
 `kubectl port-forward [pod] [ports]` - configure your proxy to expose your POD.  
