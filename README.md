@@ -78,7 +78,7 @@ Sidecar example:
 ![image](https://user-images.githubusercontent.com/4239376/204359995-49432951-70df-4b7e-b1f2-0701847fff6d.png)
 </details>
   
-#### Kubernetes building Blocks
+#### Kubernetes building Blocks.
 
 <details>
 <summary>Cluster, Internal Structure, Building Blocks, State Management</summary>
@@ -93,7 +93,20 @@ Sidecar example:
   ![8 Kubernetes in docker](https://user-images.githubusercontent.com/4239376/150000309-b0ebc220-f4f5-461b-bfda-4d0ddab7241b.png)
 </details>
 
-## Running Kubernetes Locally
+#### Kubernetes Jobs
+
+<details>
+<summary>Kubernetes Jobs</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/204906371-038c1c9e-52ee-4bfa-9e98-2571ce4d5eb7.png)
+  
+* Simple example of a job  
+![image](https://user-images.githubusercontent.com/4239376/204906540-6e4b43c4-5b48-4079-b662-e7bb9c058211.png)
+</details>
+  
+
+  
+# Running Kubernetes Locally
 
 <details>
 <summary>Options to run Kubernetes locally:</summary>
