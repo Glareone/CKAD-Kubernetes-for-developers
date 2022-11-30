@@ -148,7 +148,17 @@ kubectl expose (expose your ports)
 kubectl create [resource] - create resource in k8s based on yml file  
 kubectl apply [res] - create or MODIFY EXISTING  
 </details>
-  
+
+<details>
+<summary>Kubectl describe vs kubectl logs vs kubectl exec</summary>
+
+* kubectl describe goes to etcd database and returns configurations
+* kubectl logs goes on pods level in order to receive logs coming from containers
+* kubectl is for executing commands on container level. If you have multiple containers under pod - you also need to specify the container's name
+
+![image](https://user-images.githubusercontent.com/4239376/204894819-8732557b-da5f-4c43-b93a-f762869d5567.png)
+</details>
+
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
 ![image](https://user-images.githubusercontent.com/4239376/197339361-f2862df2-ac3b-461d-aa31-80cb1077c911.png)  
