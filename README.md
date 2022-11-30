@@ -159,8 +159,9 @@ kubectl apply [res] - create or MODIFY EXISTING
 ![image](https://user-images.githubusercontent.com/4239376/204894819-8732557b-da5f-4c43-b93a-f762869d5567.png)
   
 * kubectl exec might also be useful in inspect the container from inside the pod
-  ![image](https://user-images.githubusercontent.com/4239376/204895479-628fb92f-df91-4ae9-8007-5946181f1359.png)
-
+  ![image](https://user-images.githubusercontent.com/4239376/204895479-628fb92f-df91-4ae9-8007-5946181f1359.png)  
+PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ctrl-q`
+  
 </details>
 
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
