@@ -142,6 +142,8 @@ Sidecar example:
 `kubectl version`  
 `kubectl cluster-info`  
 `kubectl gel all` - retrieve all inf about pods, deployments, etc.  
+  - you also can use `-o wide` parameter to see extra information
+
 `kubectl run [cont-name] --image=[image-name]`  
 `kubectl port-forward [pod] [ports]` - configure your proxy to expose your POD.  
 `kubectl expose` - expose your ports  
