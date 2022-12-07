@@ -275,6 +275,10 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
 <details>
 <summary>Create namespace cronjob</summary>
   
-* You may use `kubectl create cronjob --help and take example of job` or you may use example from https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
+* You may use `kubectl create cronjob --help and take example of job` or 
+it suggests the following:    
+  `kubectl create cronjob test-job --image=busybox --schedule="*/1 * * * *"`  
+  
+* you may use example from https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   
 </details>
