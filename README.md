@@ -249,12 +249,14 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 
 You may use `kubectl run` and then export deployment to yaml file, change it and use `kube apply`
  ![image](https://user-images.githubusercontent.com/4239376/204347366-d6385bc2-0d9e-4b0d-8d75-818a2d010536.png)
+
+* You may use `kubectl create deployment --help` - this command shows several good examples how to create deployment. together with `--dry-run=client` it might be a good fit for declarative deployment creation
   
+### NOT WORKING EXAMPLE:  
 - `kubectl get deployments` and check what deployments you already have. Find general one
 - if no good candidates - run `kubectl run nginx-run --image nginx`
 - `kubectl get deployment nginx-run -o yaml` and get formatted configuration
 - OR `kubectl get deployment nginx-run -o yaml > your-new-deployment-file.yaml` to send all yaml config to new file
-
 </details>
   
 <details>
@@ -270,4 +272,9 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
   * to avoid any creation we may use `dry-run` like in the following example `kubectl run --generator=run-pod/v1 nginx-prod --image nginx -o yaml  -dry-run=true > file.yaml`.
 </details>
 
-
+<details>
+<summary>Create namespace cronjob</summary>
+  
+* You may use `kubectl create cronjob --help and take example of job` or you may use example from https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
+  
+</details>
