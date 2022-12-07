@@ -30,7 +30,7 @@ to inspect what's happening within the container:
   ![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
 </details>
 
-#### Pods
+### Pods
 <details>
 <summary>Kubernetes Pod. Brief Explanation</summary>
 
@@ -70,7 +70,17 @@ Sidecar example:
 ![image](https://user-images.githubusercontent.com/4239376/204358240-fb8162f6-aa40-4629-b386-1466e135ff4a.png)
 </details>
   
-#### Namespaces
+<details>
+<summary>Pod resources. Cpu & memory request and limit. How Kubernetes manages them</summary>
+* kubernetes rely on the following mechanism
+Kubectl -> docker run (or any other engine you use for containers) -> linux CGroups.   
+  * Linux CGroups support resource limitation
+  
+![image](https://user-images.githubusercontent.com/4239376/206243911-8957e9f2-4cc2-49db-8e80-f7c603a9ac1e.png)
+  
+</details>
+  
+### Namespaces
   
 <details>
 <summary>Kubernetes Namespace. General info</summary>
@@ -78,7 +88,7 @@ Sidecar example:
 ![image](https://user-images.githubusercontent.com/4239376/204359995-49432951-70df-4b7e-b1f2-0701847fff6d.png)
 </details>
   
-#### Kubernetes building Blocks.
+### Kubernetes building Blocks.
 
 <details>
 <summary>Cluster, Internal Structure, Building Blocks, State Management</summary>
@@ -93,7 +103,7 @@ Sidecar example:
   ![8 Kubernetes in docker](https://user-images.githubusercontent.com/4239376/150000309-b0ebc220-f4f5-461b-bfda-4d0ddab7241b.png)
 </details>
 
-#### Kubernetes Jobs
+### Kubernetes Jobs
 
 <details>
 <summary>Kubernetes Jobs. CronJob. Jobs vs CronJobs.</summary>
@@ -110,8 +120,7 @@ The key difference is that you want to run CronJobs on a regular basis, multiple
 
 * CronJob creates Job for each run, but has only one CronJob
 ![image](https://user-images.githubusercontent.com/4239376/206240304-b2a4bac5-d0ff-4720-ac01-7b0a7e8637de.png)
-
-  
+ 
 </details>
 
 
