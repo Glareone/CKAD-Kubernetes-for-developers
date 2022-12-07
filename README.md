@@ -96,7 +96,7 @@ Sidecar example:
 #### Kubernetes Jobs
 
 <details>
-<summary>Kubernetes Jobs. Jobs vs CronJobs.</summary>
+<summary>Kubernetes Jobs. CronJob. Jobs vs CronJobs.</summary>
 
 ![image](https://user-images.githubusercontent.com/4239376/204906371-038c1c9e-52ee-4bfa-9e98-2571ce4d5eb7.png)
   
@@ -108,6 +108,10 @@ Sidecar example:
 The key difference is that you want to run CronJobs on a regular basis, multiple times, using schedule.
 ![image](https://user-images.githubusercontent.com/4239376/206235934-b7a5192b-ffb0-4645-9509-a45267d1c3c8.png)
 
+* CronJob creates Job for each run, but has only one CronJob
+![image](https://user-images.githubusercontent.com/4239376/206240304-b2a4bac5-d0ff-4720-ac01-7b0a7e8637de.png)
+
+  
 </details>
 
 
