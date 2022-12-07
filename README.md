@@ -30,6 +30,20 @@ to inspect what's happening within the container:
   ![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
 </details>
 
+### Containers
+<details>
+<summary>Init Containers</summary>
+  
+* Kind of containers which should be started before launching the main application container  
+![image](https://user-images.githubusercontent.com/4239376/206247417-b660a69e-6b15-4640-98cf-0eb8c0e990bb.png)
+  
+* Init Container Example:  
+![image](https://user-images.githubusercontent.com/4239376/206248788-fbb4d08b-96b3-49d6-a1a0-7890c0fbd6da.png)  
+Pay attention on sleep mode. After 20 sec it's done. If you havent declared end status it will run forever and your main application won't start.
+
+
+</details>
+  
 ### Pods
 <details>
 <summary>Kubernetes Pod. Brief Explanation</summary>
