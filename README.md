@@ -94,7 +94,7 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
   
 </details>
 
-### Deployments. ReplicaSet
+### Deployments. ReplicaSet. Labels
 
 <details>
 <summary>Deployments specifications: replicas, strategy, labels</summary>
@@ -108,6 +108,12 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
 <summary>ReplicaSet</summary>
   
 ![image](https://user-images.githubusercontent.com/4239376/207676941-0f892b1e-538d-4e4a-ad33-920904904a23.png)
+</details>
+ 
+<details>
+<summary>Labels</summary>
+
+  ![image](https://user-images.githubusercontent.com/4239376/207681444-7ddfe7d5-237f-424c-8abe-0688cf4dac22.png)
 </details>
   
 ### Namespaces
