@@ -93,7 +93,17 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
 ![image](https://user-images.githubusercontent.com/4239376/206243911-8957e9f2-4cc2-49db-8e80-f7c603a9ac1e.png)
   
 </details>
-  
+
+### Deployments
+
+<details>
+<summary>Deployments specifications: replicas, strategy, labels</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/207669037-cd5dd926-17f1-4fb8-854a-28a3eb7dc7e8.png)
+![image](https://user-images.githubusercontent.com/4239376/207669416-41817e3f-9d6f-439b-83c0-afe007df0814.png)
+
+</details>
+
 ### Namespaces
   
 <details>
