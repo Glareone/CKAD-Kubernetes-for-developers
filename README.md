@@ -94,7 +94,7 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
   
 </details>
 
-### Deployments
+### Deployments. ReplicaSet
 
 <details>
 <summary>Deployments specifications: replicas, strategy, labels</summary>
@@ -103,7 +103,13 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
 ![image](https://user-images.githubusercontent.com/4239376/207669416-41817e3f-9d6f-439b-83c0-afe007df0814.png)
 
 </details>
-
+  
+<details>
+<summary>ReplicaSet</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/207676941-0f892b1e-538d-4e4a-ad33-920904904a23.png)
+</details>
+  
 ### Namespaces
   
 <details>
@@ -262,11 +268,14 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
 
 * You may use `kubectl create deployment --help` - this command shows several good examples how to create deployment. together with `--dry-run=client` it might be a good fit for declarative deployment creation
   
-### NOT WORKING EXAMPLE:  
-- `kubectl get deployments` and check what deployments you already have. Find general one
-- if no good candidates - run `kubectl run nginx-run --image nginx`
-- `kubectl get deployment nginx-run -o yaml` and get formatted configuration
-- OR `kubectl get deployment nginx-run -o yaml > your-new-deployment-file.yaml` to send all yaml config to new file
+### Working example:
+  
+` kubectl create deployment httpd-test-deployment-2 --image httpd -n new-httpd-test-namespace --replicas=2 --dry-run=client -o yaml > httpd-test-deployment-2.yaml`
+  
+will give you the following:  
+![image](https://user-images.githubusercontent.com/4239376/207677288-95ee2405-dcaf-4521-b7db-a886b4341f71.png)
+
+  
 </details>
   
 <details>
