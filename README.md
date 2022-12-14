@@ -111,18 +111,30 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
 </details>
  
 <details>
-<summary>Labels. Can be used in a query</summary>
+<summary>Labels. Can be used in a query. How to Query</summary>
 
+## Labels
+* Interesting Fact: Kubectl deployment monitors through the replicaset to ensure that k8s has sufficient amount of pods is available which have assigned label.
+* It means, it uses selectors to track pods. If you delete label from pod but in deployment you declared it - deployment will create another pod in a couple of seconds.
+  
   ![image](https://user-images.githubusercontent.com/4239376/207681444-7ddfe7d5-237f-424c-8abe-0688cf4dac22.png)
   
 Labels could be assigned automatically. For example in case of using K8s Dashboard to create resource:  
  ![image](https://user-images.githubusercontent.com/4239376/207685024-61f51361-cb4d-4c56-98af-19265769265d.png)
- 
+
+## How to use query:
+* Show all labels for all resources `kubectl get all --show-labels`:  
+![image](https://user-images.githubusercontent.com/4239376/207687317-67bc5e7f-d968-49e7-b169-8f0333dbbae9.png)
+
+* Use selector `kubectl get all --selector app=nginx --all-namespaces`:
+![image](https://user-images.githubusercontent.com/4239376/207687662-1a788c48-4471-4f52-b282-8297ed9d3323.png)
+
+  
   
 </details>
   
 <details>
-<summary>Labels. Can NOT be used in a query</summary>
+<summary>Annotations. Can NOT be used in a query</summary>
    
   ![image](https://user-images.githubusercontent.com/4239376/207682314-8db126ec-afe7-40fa-8a14-c4763d96acf5.png)
 </details>
@@ -170,8 +182,6 @@ The key difference is that you want to run CronJobs on a regular basis, multiple
  
 </details>
 
-
-  
 # Running Kubernetes Locally
 
 <details>
