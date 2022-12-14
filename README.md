@@ -114,6 +114,11 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
 <summary>Labels. Can be used in a query</summary>
 
   ![image](https://user-images.githubusercontent.com/4239376/207681444-7ddfe7d5-237f-424c-8abe-0688cf4dac22.png)
+  
+Labels could be assigned automatically. For example in case of using K8s Dashboard to create resource:  
+ ![image](https://user-images.githubusercontent.com/4239376/207685024-61f51361-cb4d-4c56-98af-19265769265d.png)
+ 
+  
 </details>
   
 <details>
