@@ -94,7 +94,7 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
   
 </details>
 
-### Deployments. ReplicaSet. Labels. Annotations
+### Deployments. ReplicaSet. Labels. Annotations. Deployment History
 
 <details>
 <summary>Deployments specifications: replicas, strategy, labels</summary>
@@ -128,15 +128,20 @@ Labels could be assigned automatically. For example in case of using K8s Dashboa
 
 * Use selector `kubectl get all --selector app=nginx --all-namespaces`:
 ![image](https://user-images.githubusercontent.com/4239376/207687662-1a788c48-4471-4f52-b282-8297ed9d3323.png)
-
-  
-  
 </details>
   
 <details>
 <summary>Annotations. Can NOT be used in a query</summary>
    
   ![image](https://user-images.githubusercontent.com/4239376/207682314-8db126ec-afe7-40fa-8a14-c4763d96acf5.png)
+</details>
+
+<details>
+<summary>Deployment History</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/207688288-309f93a7-5e00-4ad5-8b8c-dc4114de7698.png)
+  
+* When new major changes appear Deployment creates new ReplicaSet. Old ReplicaSet still persists, but the number of replicas set to 0.
 </details>
   
 ### Namespaces
