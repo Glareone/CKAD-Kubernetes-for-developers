@@ -94,7 +94,7 @@ Kubectl -> docker run (or any other engine you use for containers) -> linux CGro
   
 </details>
 
-### Deployments. ReplicaSet. Labels. Annotations. Deployment History
+### Deployments. ReplicaSet. Labels. Annotations.
 
 <details>
 <summary>Deployments specifications: replicas, strategy, labels</summary>
@@ -136,12 +136,40 @@ Labels could be assigned automatically. For example in case of using K8s Dashboa
   ![image](https://user-images.githubusercontent.com/4239376/207682314-8db126ec-afe7-40fa-8a14-c4763d96acf5.png)
 </details>
 
+### Deployment History. Rollout updates. Update Strategies
+
 <details>
 <summary>Deployment History</summary>
   
 ![image](https://user-images.githubusercontent.com/4239376/207688288-309f93a7-5e00-4ad5-8b8c-dc4114de7698.png)
   
 * When new major changes appear Deployment creates new ReplicaSet. Old ReplicaSet still persists, but the number of replicas set to 0.
+</details>
+
+<details>
+<summary>Rollout updates. Update Strategies</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/211910788-0645b26f-5cdd-475a-9cd4-2bec6dda2956.png)
+
+
+`kubectl rollout history` - to see the whole history  
+`kubectl rollout undo` - to revert changes
+
+### Deployment strategies supported by Kubernetes by default: Recreate and Rolling update
+![image](https://user-images.githubusercontent.com/4239376/211911595-585bcb1f-8a4e-4710-81c3-d2c3cdb78aa5.png)
+
+* Recreate - delete all pods and recreate. Leads to temporarly unavailability. 
+  - Useful when you cant run several versions of application.
+* Rolling update - updaet one pod at time. Guarantees availability. Preferred approach
+
+#### Rollout update parameters: maxUnavailable, maxSurge
+![image](https://user-images.githubusercontent.com/4239376/211911941-e5b67a5b-c528-40c2-b62d-779bbc24193d.png)
+
+
+### Deployment strategies in general: Blue-green, Canary, A\B, Multi-service
+![image](https://user-images.githubusercontent.com/4239376/197362803-243e0580-737f-4042-8cf0-1ed7ab0173c8.png)
+ 
+
 </details>
   
 ### Namespaces
@@ -287,9 +315,7 @@ https://stackoverflow.com/questions/67078009/is-it-possible-to-mount-a-shared-az
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: Azure Disks, Azure Files, Azure NetApp Files, or Azure Blobs.
 
-# Deployment strategies. Blue-green, Canary, A\B, Multi-service
- ![image](https://user-images.githubusercontent.com/4239376/197362803-243e0580-737f-4042-8cf0-1ed7ab0173c8.png)
- 
+
 # Exam. Tip & Tricks.
 
 <details>
