@@ -311,9 +311,26 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
   
 </details>
   
-# Kubernetes networking. Exposing services outside
+# Service. Ingress. Kubernetes networking. Exposing pods outside. Port forwarding
 
-`kubectl expose`
+<details>
+<summary>Service</summary>
+
+* Service - is a load balancer which provides ip-address (in one way or another)
+![image](https://user-images.githubusercontent.com/4239376/211929322-de50bc2d-66a3-4521-9d2a-52858bf5fa84.png)
+
+</details>
+  
+<details>
+<summary>Ingress. When users connect indirectly. DNS</summary>
+  * Users can connect services either directly or indirectly. If they wanna do that indirectly there is another component known as Ingress.
+  * Ingress is about DNS name which is connected to a Service.
+  
+![image](https://user-images.githubusercontent.com/4239376/211929866-e96c184e-58ca-4df2-9a28-aaf71a54dcdc.png)
+  
+</details>
+  
+`kubectl expose` 
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
