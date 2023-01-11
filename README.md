@@ -147,13 +147,14 @@ Labels could be assigned automatically. For example in case of using K8s Dashboa
 </details>
 
 <details>
-<summary>Rollout updates. Update Strategies</summary>
-
+<summary>Rollout updates. Update Strategies. Rollback \ undo changes</summary>
 ![image](https://user-images.githubusercontent.com/4239376/211910788-0645b26f-5cdd-475a-9cd4-2bec6dda2956.png)
 
 
-`kubectl rollout history` - to see the whole history  
-`kubectl rollout undo` - to revert changes
+`kubectl rollout history deployment <NAME-OF-DEPLOYMENT> --revision=<NUMBER-OF-REVISION>` - to see what changed in this exact revision step (1 -> 2)  
+![image](https://user-images.githubusercontent.com/4239376/211913521-135d2bba-db13-4e16-b882-f85566d97e5c.png) 
+  
+`kubectl rollout undo deployment <NAME-OF-DEPLOYMENT> --to-revision=<NUMBER-OF-DESIRED\PREVIOUS-REVISION>` - to revert changes to selected previous revision  
 
 ### Deployment strategies supported by Kubernetes by default: Recreate and Rolling update
 ![image](https://user-images.githubusercontent.com/4239376/211911595-585bcb1f-8a4e-4710-81c3-d2c3cdb78aa5.png)
@@ -165,11 +166,17 @@ Labels could be assigned automatically. For example in case of using K8s Dashboa
 #### Rollout update parameters: maxUnavailable, maxSurge
 ![image](https://user-images.githubusercontent.com/4239376/211911941-e5b67a5b-c528-40c2-b62d-779bbc24193d.png)
 
+### Rollout update parameters: example
+![image](https://user-images.githubusercontent.com/4239376/211912322-419de20b-ddba-424d-b08e-dbdd7a72b9c6.png)
 
+* Rollout updates manipulate ReplicaSets. Each rollout Update creates new ReplicaSet, populate it and clean up old ReplicaSet  
+* Managing rollout updates you can easily revert changes
+ 
+`kubectl rollout undo deployment <NAME-OF-DEPLOYMENT> --to-revision=<NUMBER-OF-DESIRED\PREVIOUS-REVISION>` - to revert changes to selected previous revision    
+  
 ### Deployment strategies in general: Blue-green, Canary, A\B, Multi-service
 ![image](https://user-images.githubusercontent.com/4239376/197362803-243e0580-737f-4042-8cf0-1ed7ab0173c8.png)
  
-
 </details>
   
 ### Namespaces
