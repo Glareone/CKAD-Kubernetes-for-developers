@@ -310,7 +310,11 @@ The key difference is that you want to run CronJobs on a regular basis, multiple
 PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ctrl-q`. in Azure CLI you can exit using `exit` command.
   
 </details>
+  
+# Kubernetes networking. Exposing services outside
 
+`kubectl expose`
+  
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
 ![image](https://user-images.githubusercontent.com/4239376/197339361-f2862df2-ac3b-461d-aa31-80cb1077c911.png)  
