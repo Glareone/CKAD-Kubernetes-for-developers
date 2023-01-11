@@ -335,12 +335,17 @@ You may use `kubectl run` and then export deployment to yaml file, change it and
   
 ### Working example:
   
-` kubectl create deployment httpd-test-deployment-2 --image httpd -n new-httpd-test-namespace --replicas=2 --dry-run=client -o yaml > httpd-test-deployment-2.yaml`
-  
+`kubectl create deployment httpd-test-deployment-2 --image httpd -n new-httpd-test-namespace --replicas=2 --dry-run=client -o yaml > httpd-test-deployment-2.yaml`  
+`kubectl create deployment nginx-rollout-deployment --image=nginx:1.19 --dry-run=client -o yaml > nginx-rollout-deployment.yaml`  
 will give you the following:  
 ![image](https://user-images.githubusercontent.com/4239376/207677288-95ee2405-dcaf-4521-b7db-a886b4341f71.png)
 
+</details>
   
+<details>
+<summary>Apply deployments</summary>
+  
+`kubectl create -f <YOUR_YAML_FILE>` or `kubectl apply -f <YOUR_YAML_FILE>`  
 </details>
   
 <details>
