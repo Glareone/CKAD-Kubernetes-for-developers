@@ -1,8 +1,9 @@
 # Kubernetes for developers, tech leads and solution architects
 This repository contains materials prepared by myself and collected over the internet regarding Kubernetes and how to properly use it in case you are a developer, a tech lead or a solution architect 
 
-# Recommended video course:
-[Pluralsight: Kubernetes for developers](https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents)  
+# Recommended video course and Examples:
+[Pluralsight: Kubernetes for developers](https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents)   
+[Different Kubernetes Yaml examples: Services, Deployments, etc](https://github.com/Glareone/Certified-Kubernetes-Application-Developer)
 Video Course with a good intro about Docker and Docker runtime: [Oreilly CKAD: Certified Kubernetes Application Developer](https://learning.oreilly.com/videos/certified-kubernetes-application/9780136677628)
 
 # Docker Intro and useful materials
