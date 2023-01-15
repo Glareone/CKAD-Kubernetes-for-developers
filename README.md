@@ -342,6 +342,16 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
 * Service is registered in etcd and gives access to external users to these Pods
 
 </details>
+
+<details>
+<summary>Service types: ClusterIP, NodePort, LoadBalancer, External Name, Service without Selector (useful for Databases)</summary>
+
+* `ClusterIP`: default type, provides internal access only;
+* `NodePort`: NodePort, which allocates a specific node port which needs to be opened on the firewall. using these node ports, external users, as long as they can reach out to the nodes' IP addresses, are capable of reaching out to the Service;
+* `LoadBalancer`: is a load balancer, but currently only implemented in public cloud. So if you're on Kubernetes in Azure or AWS, you will find a load balancer;
+* `ExternalName`: is a relatively new object that works on DNS names and redirection is happening at the DNS level;
+* `Service without selector`: which is used for direct connections based on `IP + port` combinations without an endpoint. This is useful for connections to a database or between namespaces.
+</details>
   
 <details>
 <summary>Ingress. When users connect indirectly. DNS</summary>
