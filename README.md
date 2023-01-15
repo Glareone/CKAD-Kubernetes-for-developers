@@ -355,17 +355,16 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
 * `ExternalName`: is a relatively new object that works on DNS names and redirection is happening at the DNS level;
 * `Service without selector`: which is used for direct connections based on `IP + port` combinations without an endpoint. This is useful for connections to a database or between namespaces.
 </details>
-  
+ 
 <details>
-<summary>Ingress. When users connect indirectly. DNS</summary>
-  * Users can connect services either directly or indirectly. If they wanna do that indirectly there is another component known as Ingress.
-  * Ingress is about DNS name which is connected to a Service.
+<summary>Services and DNS. DNS service</summary>
+
+  * Exposed Services automatically register with the Kubernetes internal DNS.
+  * DNS Service is registered in Kubernetes by default. And this DNS service is updated every time a new service is added.
   
-![image](https://user-images.githubusercontent.com/4239376/211929866-e96c184e-58ca-4df2-9a28-aaf71a54dcdc.png)
-  
+## Troubleshooting
+If you want to understand why your Deployment isn't reachable - you need to check the label and selector you use, because label is a connection between Service and Deployment. If service dont see Deployment then DNS also cant point the proper IP-address.
 </details>
-  
-`kubectl expose` 
  
 <details>
 <summary>Networking. How Kubernetes Networking works under the hood in minikube (but quite similar to public cloud K8s)</summary>
@@ -384,6 +383,38 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
 
 </details>
   
+ 
+<details>
+<summary>NetworkPolicy. Ingress & Egress. Directions.  Connections. Managing Networking. Firewall between pods and namespaces. Example</summary>
+
+## General info
+  * A Network Policy is like a firewall. 
+  * By default, all pods can reach one another.
+  * Network isolation can be configured to block traffic to pods by running pods in dedicated namespaces.
+  * Between namespaces by default there is no traffic, unless routing has been configured.
+  
+## NetworkPolicy
+  * `NetworkPolicy` can be used to block Egress as well as Ingress traffic, And it works like a firewall.
+  * The use of Network Policy depends on the support from the network provider. Not all are offering support; not all are offering support and in that case your policy wont have any effect!
+  * Connections in `NetworkPolicy` are stateful - allowing one direction is enough, another direction will be allowed automatically
+  * `Labels` are used to define what policied applied to which resources
+  
+## NotworkPilicy directions: Egress and Ingress
+  * If direction is declared in the manifest, but with no extra specifications - it means no extra limitations, both directions will be allowed by default.
+  * if direction is listed and contains a specification - that specification will be used.
+  
+Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY](https://github.com/Glareone/Certified-Kubernetes-Application-Developer/blob/master/pods-with-nw-policy.yaml)
+</details>
+  
+<details>
+<summary>Ingress. When users connect indirectly. DNS</summary>
+  
+  * Users can connect services either directly or indirectly. If they wanna do that indirectly there is another component known as Ingress.
+  * Ingress is about DNS name which is connected to a Service.
+  
+![image](https://user-images.githubusercontent.com/4239376/211929866-e96c184e-58ca-4df2-9a28-aaf71a54dcdc.png)
+</details>
+  
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
 ![image](https://user-images.githubusercontent.com/4239376/197339361-f2862df2-ac3b-461d-aa31-80cb1077c911.png)  
@@ -396,6 +427,8 @@ https://stackoverflow.com/questions/67078009/is-it-possible-to-mount-a-shared-az
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: Azure Disks, Azure Files, Azure NetApp Files, or Azure Blobs.
 
 # Exam. Tip & Tricks.
+  
+Lots of Service \ NetworkPolicy \ Deployment examples you could find here: [HUGE PACK OF REAL EXAMPLES](https://github.com/Glareone/Certified-Kubernetes-Application-Developer) 
 
 <details>
 <summary>How to get initial deployment file</summary>
