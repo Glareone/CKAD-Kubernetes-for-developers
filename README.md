@@ -385,7 +385,7 @@ If you want to understand why your Deployment isn't reachable - you need to chec
   
  
 <details>
-<summary>NetworkPolicy. Ingress & Egress. Directions.  Connections. Managing Networking. Firewall between pods and namespaces. Example</summary>
+<summary>NetworkPolicy. Ingress & Egress. Directions.  Connections. Managing Networking. Firewall between pods and namespaces. Web->Database pods Access, Example</summary>
 
 ## General info
   * A Network Policy is like a firewall. 
@@ -403,7 +403,7 @@ If you want to understand why your Deployment isn't reachable - you need to chec
   * If direction is declared in the manifest, but with no extra specifications - it means no extra limitations, both directions will be allowed by default.
   * if direction is listed and contains a specification - that specification will be used.
   
-Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY](https://github.com/Glareone/Certified-Kubernetes-Application-Developer/blob/master/pods-with-nw-policy.yaml)
+Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](https://github.com/Glareone/Certified-Kubernetes-Application-Developer/blob/master/pods-with-nw-policy.yaml)
 </details>
   
 <details>
@@ -497,5 +497,35 @@ PS Notice, this comman allocates a random portal on all backend nodes, so if you
 
 ![image](https://user-images.githubusercontent.com/4239376/212551153-bf7a65fd-65d7-49f8-ae33-f7996c3c6b88.png)
 ![image](https://user-images.githubusercontent.com/4239376/212551721-9ce115e8-9645-4b2e-b553-f3bb6503d247.png)
+</details>
+  
+<details>
+<summary>Configure a Service for Deployment. ClusterIP & NodePort</summary>
+  Exercise: Configure a service for the Nginx deployment you've created earlier. I don't really care which Nginx deployment you use, as long as you make it accessible. And ensure that the service makes Nginx accessible through port 80, using the ClusterIP type. And also, verify that it works. After making the service accessible this way, change the type to NodePort and expose the service on port 32000. And verified the service is accessible on this node port.  
+  
+  * `kubectl create deployment nginx-lab-for-service-deployment --image nginx --dry-run=client -o yaml > nginx-lab-for-service-deployment.yaml`  - deployment in fine   
+  * `vim nginx-lab-for-service-deployment.yaml` - if you need to tune your deployment   
+  * `kubectl create -f nginx-lab-for-service-deployment.yaml` - apply deployment   
+  * `kubectl expose deployment nginx-lab-for-service-deployment --type=ClusterIP --port=80 --dry-run=client -o yaml > nginx-lab-for-service-service.yaml` - create Service for your deployment. Rename Service if needed (because now its name has -deployment suffix  
+  * `kubectl create -f nginx-lab-for-service-deployment.yaml` -- apply Service  
+  * `kubectl describe svc nginx-lab-for-service-deployment` - check that service is working.  
+  
+![image](https://user-images.githubusercontent.com/4239376/212557873-b6910b95-fc89-427f-b295-8640d209bfd6.png)
+  
+  * You can verify and endpoints is assigned.  
+  * `kubectl get endpoints` - shows exposed endpoints  
+  
+![image](https://user-images.githubusercontent.com/4239376/212557996-6e57c3dc-a886-41e2-ae05-3b9511d8efb2.png)
 
+  * `kubectl edit svc nginx-lab-for-service-deployment` - edit deployed service
+  * replace `targetPort` with `nodePort` because targetPort belongs to ClusterIP type, but we need NodePort Service type now
+  
+  ![image](https://user-images.githubusercontent.com/4239376/212558640-768641be-6ac3-4d0c-a209-901da33bef50.png)
+  
+  * changes applied: ![image](https://user-images.githubusercontent.com/4239376/212558660-2ba07036-f9f4-4e5e-9132-853b4b7b0580.png)
+
+PS: It will be reachable from internal network because of Type. In order to make it reachable from outer world you need to use LoadBalancer!!
+
+  
+  
 </details>
