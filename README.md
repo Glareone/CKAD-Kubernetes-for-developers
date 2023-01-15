@@ -314,10 +314,32 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
 # Service. Ingress. Kubernetes networking. Exposing pods outside. Port forwarding
 
 <details>
-<summary>Service</summary>
+<summary>Services. General Info. Selector to Deployments. Kube-proxy agent</summary>
 
-* Service - is a load balancer which provides ip-address (in one way or another)
+## Service. General. Connection to Deployments and Pods inside. 
+* Service is a Kubernetes object, which is an abstraction that defines a logical set of Pods and policy by which to access them.
+* Service, simply saying - is a load balancer which provides ip-address (in one way or another) and exposes your Pods.
 ![image](https://user-images.githubusercontent.com/4239376/211929322-de50bc2d-66a3-4521-9d2a-52858bf5fa84.png)
+
+* The set of Pods is determined for Service by selector. Controller scans for Pods that match the selector and include these in the Service. 
+* To use selector you need to declare a **Label** in your Deployment.
+
+## Access to Multiple Deployments:
+* Service could provide access to multiple deployments. Kubernetes automatically makes Load Balancing between Deployments.
+
+## How Service works under the hood:
+* The only thing that Services do is watch for a Deployment that has a specific label set based on the Selector that is specified in the Service.
+* Using `kubectl expose`, it really looks as if you are exposing a specific Deployment, but it's not. This command is only for your convenient and doesnt show several Deployments if you have them behind Service
+
+## Kube-proxy agent and ClusterIP port
+* kube-proxy agent - is an agent running on the nodes which watches the Kubernetes API for new services and their endpoints. After creation, it opens random ports and listens for traffic to the clusterIP port, and next redirects traffic to the randomly generated service endpoints
+
+## Kube-proxy agent, Service and Pods:
+![image](https://user-images.githubusercontent.com/4239376/212548102-fff5439d-c303-41bc-a010-745ef77b7e4f.png)
+
+* P1, P2, P3 - Pods under 2 different deployments.
+* Kube-Proxy is an agent which plays Load Balancer role for 3 Pods
+* Service is registered in etcd and gives access to external users to these Pods
 
 </details>
   
