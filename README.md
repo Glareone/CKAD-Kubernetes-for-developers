@@ -430,11 +430,16 @@ it suggests the following:
 <details>
 <summary>Create your Service with kubectl expose deployment. Get Services</summary>
 
-## Create Service.
+## Create Service and it's yaml file.
 **FIRST OF ALL YOU NEED DEPLOYMENT YOU WILL EXPOSE**  
-* useful command to get Service is to use the following command on exam: `kubectl expose deployment nginx --port=80 --type=NodePort`;  
+* useful command to get Service is to use the following command on exam:   
+`kubectl expose deployment <YOUR-DEPLOYMENT> --port=80 --type=NodePort`;  
+After applying this command you will see that your Service is deployed instantly. So better to use it with `--dry-run=client` flag:    
+`kubectl expose deployment <YOUR-DEPLOYMENT> --port=80 --type=NodePort --dry-run=client -o yaml > <YOUR_SERVICE.yaml>` - dry run for your service.  
   
-Notice, this comman allocates a random portal on all backend nodes, so if you want to be in control of used Port you need to use `targetPort` to define the port.
+* Create service: `kubectl create -f <YOUR_SERVICE.yaml>` - to create service from yaml file.
+  
+PS Notice, this comman allocates a random portal on all backend nodes, so if you want to be in control of used Port you need to use `targetPort` to define the port.
 ## Get Services
 `kubectl get svc` - to get Services.  
 `kubectl get svc nginx -o yaml` - will show Service specifics in yaml.
