@@ -340,6 +340,9 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
 * P1, P2, P3 - Pods under 2 different deployments.
 * Kube-Proxy is an agent which plays Load Balancer role for 3 Pods
 * Service is registered in etcd and gives access to external users to these Pods
+  
+![image](https://user-images.githubusercontent.com/4239376/212550170-0ceeaebd-c869-484f-8b4c-76045ee39c4c.png)
+![image](https://user-images.githubusercontent.com/4239376/212551735-5b1c4911-1968-4dc3-973f-560ecfdacdbf.png)
 
 </details>
 
@@ -374,7 +377,6 @@ https://stackoverflow.com/questions/67078009/is-it-possible-to-mount-a-shared-az
 ![image](https://user-images.githubusercontent.com/4239376/197342695-cb7217d0-20c0-4021-8f1c-fea066b0ef0b.png)
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: Azure Disks, Azure Files, Azure NetApp Files, or Azure Blobs.
-
 
 # Exam. Tip & Tricks.
 
@@ -423,4 +425,22 @@ it suggests the following:
   
 * you may use example from https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   
+</details>
+  
+<details>
+<summary>Create your Service with kubectl expose deployment. Get Services</summary>
+
+## Create Service.
+**FIRST OF ALL YOU NEED DEPLOYMENT YOU WILL EXPOSE**  
+* useful command to get Service is to use the following command on exam: `kubectl expose deployment nginx --port=80 --type=NodePort`;  
+  
+Notice, this comman allocates a random portal on all backend nodes, so if you want to be in control of used Port you need to use `targetPort` to define the port.
+## Get Services
+`kubectl get svc` - to get Services.  
+`kubectl get svc nginx -o yaml` - will show Service specifics in yaml.
+`kubectl get svc nginx -o yaml > my-service.yaml` - Service specifics in yaml to file  
+
+![image](https://user-images.githubusercontent.com/4239376/212551153-bf7a65fd-65d7-49f8-ae33-f7996c3c6b88.png)
+![image](https://user-images.githubusercontent.com/4239376/212551721-9ce115e8-9645-4b2e-b553-f3bb6503d247.png)
+
 </details>
