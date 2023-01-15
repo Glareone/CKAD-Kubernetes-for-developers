@@ -366,6 +366,23 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
 </details>
   
 `kubectl expose` 
+ 
+<details>
+<summary>Networking. How Kubernetes Networking works under the hood in minikube (but quite similar to public cloud K8s)</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/212553209-ba5f8d53-3e95-4da7-95fd-5b0381c188f3.png)
+
+  * kube-apiserver - process which runs minikube. You can find it in your list of processes.
+  * base cidr address pool for minikube - 10.98.0.0/12. It means all addresses until 10.111.255.255 will be in the same network.
+  * mywebserver and nginx - Services; They are under one network, not different;
+  * endpoints - how you get to the pods. Load-Balancing role is here.
+  * 172.17.0.17 and 172.17.0.18 - Pod addresses
+  * NodePort - port on host level, in our case - on minukube. NodePort is spreaded all over your Nodes. `32000` brings us to `nginx` Service, `31074` brings us to `mywebserver` Service.
+  * ClusterIP - referring the Ip addresses within Services. It's because not Ip-addresses are accessible from the outside. Because there is no routing between 192.168.99.100 and `kube-apiserver`
+  * LB on top - is LoadBalancing in Public Clouds (Azure, AWS) which navigates you to the proper `Service` on different `Nodes`.
+  ![image](https://user-images.githubusercontent.com/4239376/212552710-9fae95d1-708a-477f-a199-b35127b5f24e.png)
+
+</details>
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
