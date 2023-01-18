@@ -422,7 +422,7 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
 </details>
 
 <details>
-<summary>General information. Ingress vs LoadBalancer. Ingress vs Service</summary>
+<summary>General information. Ingress vs LoadBalancer. Ingress vs Service. Ingress in Public Cloud K8s</summary>
 
 # General info
   * Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
@@ -435,6 +435,7 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   
 # Ingress vs LoadBalancer
   * Ingresses are native objects inside the cluster that can route to multiple services, while load balancers are external to the cluster and only route to a single service.
+  * On many cloud providers ingress-nginx will also create the corresponding Load Balancer resource. All you have to do is get the external IP and add a DNS A record inside your DNS provider that point myservicea.foo.org and myserviceb.foo.org to the nginx external IP. Get the external IP by running:
   
 # Ingress vs Service
   * So where services take care of the basic exposure, Ingress really is what brings your application to the internet
@@ -443,6 +444,7 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   * Ingress controller is required before creating your Ingresses. 
   * The Ingress controller is not available by default in Minikube. 
   * If you are using a Kubernetes in cloud, then Ingress controller will be available and it's just a drop down list that you will find in a cloud.
+  
 </details>
   
 <details>
@@ -599,7 +601,7 @@ PS Notice, this comman allocates a random portal on all backend nodes, so if you
 <details>
 <summary>Ingress. Expose Deployment and Service NodePort outside using Ingress</summary>
   
-  
+ # How to 
   0. get initial Ingress Controller example from documentation: https://kubernetes.io/docs/concepts/services-networking/ingress/
     - save in yaml file using `vim test-ingress.yaml`
   1. `kubectl create deployment <YOUR_DEPLOYMENT_NAME>` -  Create your deployment with replicaSet >= 2
@@ -618,6 +620,9 @@ PS Notice, this comman allocates a random portal on all backend nodes, so if you
   
   ![image](https://user-images.githubusercontent.com/4239376/213306479-a1604a8c-7a3e-4811-8d0e-5cdcf7dcf074.png)
 
+# Details
+  * Applying the yaml you may find in my root folder, ingress resources will be created and managed by the ingress-nginx instance. Nginx is configured to automatically discover all ingress with the kubernetes.io/ingress.class: "nginx" annotation or where `ingressClassName: nginx` is present. 
+  * Please note that the ingress resource should be placed inside the same namespace of the backend resource.
 </details>
   
 <details>
