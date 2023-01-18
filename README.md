@@ -414,6 +414,9 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   * Ingress is about DNS name which is connected to a Service.
   
 ![image](https://user-images.githubusercontent.com/4239376/211929866-e96c184e-58ca-4df2-9a28-aaf71a54dcdc.png)
+  
+  * Another slide with Ingress and Service
+
 ![image](https://user-images.githubusercontent.com/4239376/213295177-7a0c2522-0b5b-45fd-a3bf-dc7cfb3ccd53.png)
 
 </details>
@@ -444,6 +447,7 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   
 <details>
 <summary>Controller. Types of Controllers. Ingress Controller</summary>
+  
   * The Kubernetes controller manager is a daemon.
   * Kubernetes controller - it is a loop that watches the state of your cluster and makes changes as needed, always working to maintain your desired state
   * Controllers can track many objects including:
@@ -466,6 +470,13 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   - kong https://docs.konghq.com/kubernetes-ingress-controller/latest/
   - contour (comparison): https://joshrosso.com/docs/2019/2019-04-12-contour-ingress-with-envoy/
   
+</details>
+  
+
+<details>
+<summary>How to work with Ingress. Configuring Ingress</summary>
+  
+  # Check Tips and Tricks section and you will find comprehensive example for Ingress: https://github.com/Glareone/Kubernetes-for-developers/edit/main/README.md#exam-tip--tricks
 </details>
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
@@ -583,4 +594,36 @@ PS Notice, this comman allocates a random portal on all backend nodes, so if you
   * changes applied: ![image](https://user-images.githubusercontent.com/4239376/212558660-2ba07036-f9f4-4e5e-9132-853b4b7b0580.png)
 
   PS: It will be reachable from internal network because of Type. In order to make it reachable from outer world you need to use LoadBalancer!!
+</details>
+  
+<details>
+<summary>Ingress. Expose Deployment and Service NodePort outside using Ingress</summary>
+  
+  
+  0. get initial Ingress Controller example from documentation: https://kubernetes.io/docs/concepts/services-networking/ingress/
+    - save in yaml file using `vim test-ingress.yaml`
+  1. `kubectl create deployment <YOUR_DEPLOYMENT_NAME>` -  Create your deployment with replicaSet >= 2
+  2. `kubectl scale deployment <YOUR_DEPLOYMENT_NAME> --replicas=3` - scale number of pods
+  2. `kubectl expose deployment <YOUR_DEPLOYMENT_NAME> --type=NodePort --port=80` - Create Service for deployment. In our case we need NodePort because ClusterIP is useless in this case
+  3. `kubectl get svc` - verify we have created Service
+  ![image](https://user-images.githubusercontent.com/4239376/213303596-9af863fb-a34c-4d49-b5ca-31b3d2e49d34.png)
+  Keep in mind that we dont care of CLUSTER-IP value, we care only about Port because port addresses the Server to Deployment. It means you can reach the Service (and Deployment) using `curl http://<KUBERNETES_CLUSTER_IP>:<YOUR_PORT_ASSIGNED_TO_SERVICE: 32618>`
+  4. fix initial Ingress example. Need to change `service: name: test` to our `service: name: <NAME_OF_SERVICE>`
+  5. fix initial Ingress example adding host name. Better to start with `kubectl explain ingress.spec.rules` and check `host`
+    - you can find the final file in the current repo
+  6. create ingress using `kubectl create -f test-ingress.yaml`
+  7. `kubectl get ingress  --all-namespaces` - check that ingress created.
+  8. If you run it in minicube and locally you may reach your service updating `hosts` file and send request from your address to your local ip address
+  9. `curl http://<YOUR_HOSTNAME>.com/testpath` - and voila! 
+  
+  ![image](https://user-images.githubusercontent.com/4239376/213306479-a1604a8c-7a3e-4811-8d0e-5cdcf7dcf074.png)
+
+</details>
+  
+<details>
+<summary>Update Deployment. Change Replica set</summary>
+  
+  You can easily use one of the following commands:
+  * `kubectl edit deployment <YOUR_DEPLOYMENT_NAME>` - edit and save changes
+  * `kubectl scale deployment <YOUR_DEPLOYMENT_NAME> --replica=3` - scale out your pods number 
 </details>
