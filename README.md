@@ -3,8 +3,8 @@ This repository contains materials prepared by myself and collected over the int
 
 # Recommended video course and Examples:
 [Pluralsight: Kubernetes for developers](https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents)    
-[Different Kubernetes Yaml examples: Services, Deployments, etc](https://github.com/Glareone/Certified-Kubernetes-Application-Developer)  
 Video Course with a good intro about Docker and Docker runtime: [Oreilly CKAD: Certified Kubernetes Application Developer](https://learning.oreilly.com/videos/certified-kubernetes-application/9780136677628)  
+Lots of Service \ NetworkPolicy \ Deployment [EXAMPLES](https://github.com/Glareone/Certified-Kubernetes-Application-Developer) 
 
 # Docker Intro and useful materials
 
@@ -423,6 +423,9 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
+<details>
+<summary>Kubernetes Persistent Storages. Volumes. Azure Shared Disks</summary>
+
 ![image](https://user-images.githubusercontent.com/4239376/197339361-f2862df2-ac3b-461d-aa31-80cb1077c911.png)  
 Article: https://learn.microsoft.com/en-us/azure/aks/concepts-storage
 
@@ -431,6 +434,8 @@ https://stackoverflow.com/questions/67078009/is-it-possible-to-mount-a-shared-az
 ![image](https://user-images.githubusercontent.com/4239376/197342695-cb7217d0-20c0-4021-8f1c-fea066b0ef0b.png)
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: Azure Disks, Azure Files, Azure NetApp Files, or Azure Blobs.
+
+</details>
 
 # Exam. Tip & Tricks.
   
