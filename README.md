@@ -383,13 +383,13 @@ If you want to understand why your Deployment isn't reachable - you need to chec
 
 </details>
   
-# Ingress.
+# Ingress. Controller
  
 <details>
 <summary>NetworkPolicy. Ingress & Egress. Directions.  Connections. Managing Networking. Firewall between pods and namespaces. Web->Database pods Access, Example</summary>
 
 ## General info
-  * A Network Policy is like a firewall. 
+  * A NetworkPolicy is like a firewall. 
   * By default, all pods can reach one another.
   * Network isolation can be configured to block traffic to pods by running pods in dedicated namespaces.
   * Between namespaces by default there is no traffic, unless routing has been configured.
@@ -408,17 +408,64 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
 </details>
   
 <details>
-<summary>Ingress. When users connect indirectly. DNS</summary>
+<summary>Ingress. When users connect indirectly. DNS. Basic slides</summary>
   
   * Users can connect services either directly or indirectly. If they wanna do that indirectly there is another component known as Ingress.
   * Ingress is about DNS name which is connected to a Service.
   
 ![image](https://user-images.githubusercontent.com/4239376/211929866-e96c184e-58ca-4df2-9a28-aaf71a54dcdc.png)
+![image](https://user-images.githubusercontent.com/4239376/213295177-7a0c2522-0b5b-45fd-a3bf-dc7cfb3ccd53.png)
+
 </details>
 
 <details>
-<summary>Ingress.General information</summary>
+<summary>General information. Ingress vs LoadBalancer. Ingress vs Service</summary>
 
+# General info
+  * Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
+  * Traffic routing is controlled by rules that are defined on the Ingress resource
+  * Ingress can be configured to do multiple things. It gives services externally reachable URLs
+  * It allows you to load balance traffic. 
+  * It allows you to load balancing traffic between several Services
+  * It can terminate SSL as well as TLS
+  * Offers name based virtual hosting
+  
+# Ingress vs LoadBalancer
+  * Ingresses are native objects inside the cluster that can route to multiple services, while load balancers are external to the cluster and only route to a single service.
+  
+# Ingress vs Service
+  * So where services take care of the basic exposure, Ingress really is what brings your application to the internet
+  
+# Creating Ingress. Ingress Controller
+  * Ingress controller is required before creating your Ingresses. 
+  * The Ingress controller is not available by default in Minikube. 
+  * If you are using a Kubernetes in cloud, then Ingress controller will be available and it's just a drop down list that you will find in a cloud.
+</details>
+  
+<details>
+<summary>Controller. Types of Controllers. Ingress Controller</summary>
+  * The Kubernetes controller manager is a daemon.
+  * Kubernetes controller - it is a loop that watches the state of your cluster and makes changes as needed, always working to maintain your desired state
+  * Controllers can track many objects including:
+    - What workloads are running and where
+    - Resources available to those workloads
+    - Policies around how the workloads behave (restart, upgrades, fault-tolerance)
+  
+# Type of Controllers
+  - ReplicaSet
+  - StatefulSet
+  - Job
+  - CronJob
+  - DaemonSet
+  - Ingress Controller
+  
+# Ingress Controller. Types
+  - nginx (ingress-nginx): https://github.com/kubernetes/ingress-nginx
+  - haproxy https://haproxy-ingress.github.io/docs/getting-started/
+  - traefik https://doc.traefik.io/traefik/providers/kubernetes-ingress/
+  - kong https://docs.konghq.com/kubernetes-ingress-controller/latest/
+  - contour (comparison): https://joshrosso.com/docs/2019/2019-04-12-contour-ingress-with-envoy/
+  
 </details>
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
@@ -535,8 +582,5 @@ PS Notice, this comman allocates a random portal on all backend nodes, so if you
   
   * changes applied: ![image](https://user-images.githubusercontent.com/4239376/212558660-2ba07036-f9f4-4e5e-9132-853b4b7b0580.png)
 
-PS: It will be reachable from internal network because of Type. In order to make it reachable from outer world you need to use LoadBalancer!!
-
-  
-  
+  PS: It will be reachable from internal network because of Type. In order to make it reachable from outer world you need to use LoadBalancer!!
 </details>
