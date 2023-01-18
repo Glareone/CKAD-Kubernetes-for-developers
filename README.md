@@ -17,7 +17,6 @@ busybox - is a minimal linux container to emulate workload. if you type the comm
 
 to inspect what's happening within the container:  
 > docker inspect <ID> | less
-
 </details>
   
 # Kubernetes. General Information. About Kubernetes itself
@@ -29,6 +28,21 @@ to inspect what's happening within the container:
 <summary>Kubernetes application instance creation diagram</summary>
   
   ![MicrosoftTeams-image](https://user-images.githubusercontent.com/4239376/188572077-42c51924-f2de-4173-8837-b26bb5d9d2a3.png)
+</details>
+
+### Kubernetes building Blocks.
+
+<details>
+<summary>Cluster, Internal Structure, Building Blocks, State Management</summary>
+
+  ![1 Cluster](https://user-images.githubusercontent.com/4239376/149999683-875c45bd-503e-4f96-bbca-4490e94fdbe8.png)  
+  ![2 state management](https://user-images.githubusercontent.com/4239376/150000162-71be084d-1a6b-409e-9239-63827c6f6e96.png)  
+  ![3 pod](https://user-images.githubusercontent.com/4239376/150000193-9174b15d-6fb2-42e0-a107-5114cbbf970a.png)  
+  ![4 K8s Building blocks](https://user-images.githubusercontent.com/4239376/150000219-c4d8705a-f7d3-4eb4-8189-50aa15ca9e1c.png)  
+  ![5 Node - virtual machines + agents](https://user-images.githubusercontent.com/4239376/150000241-ba7e45f7-fb21-4b87-9724-936ea352a57b.png) 
+  ![6 K8s interfaces](https://user-images.githubusercontent.com/4239376/150000271-eea554dc-1d57-4fc4-8452-d62860c34b2e.png)
+  ![7 Node agents](https://user-images.githubusercontent.com/4239376/150000291-26f1c468-a373-48fb-958d-ae84612224b2.png)
+  ![8 Kubernetes in docker](https://user-images.githubusercontent.com/4239376/150000309-b0ebc220-f4f5-461b-bfda-4d0ddab7241b.png)
 </details>
 
 ### Containers
@@ -188,21 +202,6 @@ Labels could be assigned automatically. For example in case of using K8s Dashboa
 ![image](https://user-images.githubusercontent.com/4239376/204359995-49432951-70df-4b7e-b1f2-0701847fff6d.png)
 </details>
   
-### Kubernetes building Blocks.
-
-<details>
-<summary>Cluster, Internal Structure, Building Blocks, State Management</summary>
-
-  ![1 Cluster](https://user-images.githubusercontent.com/4239376/149999683-875c45bd-503e-4f96-bbca-4490e94fdbe8.png)  
-  ![2 state management](https://user-images.githubusercontent.com/4239376/150000162-71be084d-1a6b-409e-9239-63827c6f6e96.png)  
-  ![3 pod](https://user-images.githubusercontent.com/4239376/150000193-9174b15d-6fb2-42e0-a107-5114cbbf970a.png)  
-  ![4 K8s Building blocks](https://user-images.githubusercontent.com/4239376/150000219-c4d8705a-f7d3-4eb4-8189-50aa15ca9e1c.png)  
-  ![5 Node - virtual machines + agents](https://user-images.githubusercontent.com/4239376/150000241-ba7e45f7-fb21-4b87-9724-936ea352a57b.png) 
-  ![6 K8s interfaces](https://user-images.githubusercontent.com/4239376/150000271-eea554dc-1d57-4fc4-8452-d62860c34b2e.png)
-  ![7 Node agents](https://user-images.githubusercontent.com/4239376/150000291-26f1c468-a373-48fb-958d-ae84612224b2.png)
-  ![8 Kubernetes in docker](https://user-images.githubusercontent.com/4239376/150000309-b0ebc220-f4f5-461b-bfda-4d0ddab7241b.png)
-</details>
-
 ### Kubernetes Jobs
 
 <details>
@@ -312,7 +311,7 @@ PS to exit from interactive terminal you cant use `exit` command, use `ctrl-p ct
   
 </details>
   
-# Service. Ingress. Kubernetes networking. Exposing pods outside. Port forwarding
+# Service. Kubernetes networking. Exposing pods outside. Port forwarding
 
 <details>
 <summary>Services. General Info. Selector to Deployments. Kube-proxy agent</summary>
@@ -384,6 +383,7 @@ If you want to understand why your Deployment isn't reachable - you need to chec
 
 </details>
   
+# Ingress.
  
 <details>
 <summary>NetworkPolicy. Ingress & Egress. Directions.  Connections. Managing Networking. Firewall between pods and namespaces. Web->Database pods Access, Example</summary>
@@ -414,6 +414,11 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   * Ingress is about DNS name which is connected to a Service.
   
 ![image](https://user-images.githubusercontent.com/4239376/211929866-e96c184e-58ca-4df2-9a28-aaf71a54dcdc.png)
+</details>
+
+<details>
+<summary>Ingress.General information</summary>
+
 </details>
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
