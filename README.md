@@ -508,9 +508,19 @@ The third path in example - is generic path. You send traffic which does not mat
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
 
 <details>
-<summary>PV - Persistent Volume. PVC - Persistent Volume Claim. Pod Volumes. ConfigMap. Secrets</summary>
+<summary>Volume Types. Pod Volumes. ConfigMap. Secrets. azureDisk, hostPath, awsElastickBlockStore, gcePersistentDisk. NFS. ISCSI</summary>
   
+## Basics
 The PV is persistent volume and this persistent volume goes to external storage and this external storage as we will see shortly can be anything. And the nice thing is you can have multiple PVs available pointing to different external storage solutions. So they don't even have to be the same external storage, it can be anything. Now, the PVs are independent objects in the Kubernetes environment. And in order to work with the PV, it is the PVC, the persistent volume claim. In a persistent volume claim, the pod can use a persistent volume claim. The persistent volume claim is a request for storage and this requests for storage is only asking for a specific size and a specific type. So that can be like I need two terabytes of ReadWritemany.
+  
+## Volume Types:
+  * emptyDir: creates a temporary directory on the host
+  * hostPath: persistently connects to host environment
+  * azureDisk: Azure Cloud Storage
+  * awsElasticBlockStore: aws cloud storage
+  * gcePersistentDisk: GCP cloud storage
+  * iscsi: ISCSI SAN Storage (disk)
+  * ngs: Network File System storage
   
 ![image](https://user-images.githubusercontent.com/4239376/214413163-31cb9d97-5fa7-4e46-b09e-39d36b736992.png)
 
@@ -521,6 +531,16 @@ The PV is persistent volume and this persistent volume goes to external storage 
   * ConfigMap - is a special case of storage. Best way to provide dynamic data within a Pod;
   * Secret - do the same as ConfigMap, but they encoding the data they contain. Encoding is not the same as encrypting, but it just scrambles the data so that on first sight it is not readable, but for anyone who knows the basics for utility, it's very easy to dig out the data in a secret
   
+</details>
+  
+<details>
+<summary>How to decide what Volume to use. Pod Volume Example</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/214417312-e8bd470e-7b36-472a-8639-db839dc65af3.png)
+  
+## Pod Volume mount example:
+  ![image](https://user-images.githubusercontent.com/4239376/214417935-1d0ca47e-3a32-4279-8fd1-8687c817f279.png)
+
 </details>
   
 <details>
