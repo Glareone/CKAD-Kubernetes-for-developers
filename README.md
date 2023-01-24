@@ -513,6 +513,13 @@ The third path in example - is generic path. You send traffic which does not mat
 ## Basics
 The PV is persistent volume and this persistent volume goes to external storage and this external storage as we will see shortly can be anything. And the nice thing is you can have multiple PVs available pointing to different external storage solutions. So they don't even have to be the same external storage, it can be anything. Now, the PVs are independent objects in the Kubernetes environment. And in order to work with the PV, it is the PVC, the persistent volume claim. In a persistent volume claim, the pod can use a persistent volume claim. The persistent volume claim is a request for storage and this requests for storage is only asking for a specific size and a specific type. So that can be like I need two terabytes of ReadWritemany.
   
+![image](https://user-images.githubusercontent.com/4239376/214425826-3a98849c-88e9-4f34-87bb-986ae6f0074e.png)
+
+## PV Example:
+  ![image](https://user-images.githubusercontent.com/4239376/214426068-3f4c5e60-3d49-4822-b72b-91904b1dda6f.png)  
+* hostPath: PV uses hostPath a storage solution. In opposite to emptyDir, but hostPath is persistent, emptyDir is temporary.
+* Created PersistentVolume with hostPath means this storage will still be there when Pods which use it are gone.
+  
 ## Volume Types:
   * emptyDir: creates a temporary directory on the host
   * hostPath: persistently connects to host environment
@@ -534,13 +541,17 @@ The PV is persistent volume and this persistent volume goes to external storage 
 </details>
   
 <details>
-<summary>How to decide what Volume to use. Pod Volume Example</summary>
+<summary>How to decide what Volume to use. Pod Volume Example. PV Example</summary>
   
 ![image](https://user-images.githubusercontent.com/4239376/214417312-e8bd470e-7b36-472a-8639-db839dc65af3.png)
   
 ## Pod Volume mount example:
   ![image](https://user-images.githubusercontent.com/4239376/214417935-1d0ca47e-3a32-4279-8fd1-8687c817f279.png)
 
+## PV Example:
+  ![image](https://user-images.githubusercontent.com/4239376/214426068-3f4c5e60-3d49-4822-b72b-91904b1dda6f.png)  
+* hostPath: PV uses hostPath a storage solution. In opposite to emptyDir, but hostPath is persistent, emptyDir is temporary.
+* Created PersistentVolume with hostPath means this storage will still be there when Pods which use it are gone.
 </details>
   
 <details>
