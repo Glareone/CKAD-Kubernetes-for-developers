@@ -476,9 +476,33 @@ Pods with applied NetworkPolicy you can find here: [PODS WITH NETWORKPOLICY.](ht
   
 
 <details>
-<summary>How to work with Ingress. Configuring Ingress</summary>
+<summary>How to work with Ingress. Configuring Ingress.</summary>
   
   # Check Tips and Tricks section and you will find comprehensive example for Ingress: https://github.com/Glareone/Kubernetes-for-developers/edit/main/README.md#exam-tip--tricks
+</details>
+
+<details>
+<summary>Ingress rules. Inbound Traffic. Regular expression. Simple Fanout. Name based virtual hosting</summary>
+
+## Rules consist of several things:  
+* Optional host: if host is not specified - then rule applies to all Inbound traffic;
+* List of paths like `/testpath`. Each path has it's own backend. You can use Regular Expression here.
+* Backend: consist of ServiceName and ServicePort. It matches K8s API Service Objects. You also may configure default Backend for incoming traffic if the current path doesnt match to anyone.
+
+## Backend types in opposite to Ingress Backend:
+* Simple Ingress  
+![image](https://user-images.githubusercontent.com/4239376/214406315-0915c404-4fce-48e5-ae55-aea798898a4c.png)  
+* Simple Fanout: A fanout configuration routes traffic from a single IP address to more than one Service, based on the HTTP URI being requested.  
+![image](https://user-images.githubusercontent.com/4239376/214402840-8496d3a9-0f07-4702-aa5b-94112d31cf48.png)  
+![image](https://user-images.githubusercontent.com/4239376/214406611-da32fb07-d0fe-4141-b29a-3a310c70f7b1.png)  
+
+
+* Name based virtual hosting: traffic is coming to the specific route (subdomain, as example)  
+![image](https://user-images.githubusercontent.com/4239376/214403275-cfdf87d4-f371-4c88-a66a-329597949513.png)  
+![image](https://user-images.githubusercontent.com/4239376/214407005-6bcf8319-2261-42dc-b0e9-aac791a888f3.png)  
+The third path in example - is generic path. You send traffic which does not match to any other path there.
+
+* TLS Ingress: Ensure that TLS termination is happened at the Load Balancer level. You also can secure an Ingress by specifying a Secret that contains a TLS private key and certificate. 
 </details>
   
 # Kubernetes Persistent Storages. Volumes. Azure Shared Disks
