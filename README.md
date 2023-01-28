@@ -505,7 +505,7 @@ The third path in example - is generic path. You send traffic which does not mat
 * TLS Ingress: Ensure that TLS termination is happened at the Load Balancer level. You also can secure an Ingress by specifying a Secret that contains a TLS private key and certificate. 
 </details>
   
-# Kubernetes Persistent Storages. Volumes. Azure Shared Disks
+# Kubernetes Persistent Storages. PV Persistent Volumes. PVC Persistent Volume Claims. Azure Shared Disks
 
 <details>
 <summary>Volume Types. Pod Volumes. ConfigMap. Secrets. azureDisk, hostPath, awsElastickBlockStore, gcePersistentDisk. NFS. ISCSI</summary>
@@ -552,6 +552,24 @@ The PV is persistent volume and this persistent volume goes to external storage 
   ![image](https://user-images.githubusercontent.com/4239376/214426068-3f4c5e60-3d49-4822-b72b-91904b1dda6f.png)  
 * hostPath: PV uses hostPath a storage solution. In opposite to emptyDir, but hostPath is persistent, emptyDir is temporary.
 * Created PersistentVolume with hostPath means this storage will still be there when Pods which use it are gone.
+</details>
+  
+<details>
+<summary>PVC. Persistent Volume Claims. Connect Pod to PVC.</summary>
+
+* `kubectl get pvc` - to get all pvcs.
+
+  ![image](https://user-images.githubusercontent.com/4239376/215287667-7cf1e595-0f86-45d9-b669-656ea228b3b6.png)
+  
+* `kubectl get pv` - after applying `kubectl create -f pvc.yaml` from previous example we see that pv and pvc binding created. 
+* PVC requested 1 GiB. PV has 2GiB in total.
+  ![image](https://user-images.githubusercontent.com/4239376/215287756-49f32d8d-b794-4d42-9c9c-7b27b795fd5c.png)
+
+* we can connect Pod to PVC.
+  ![image](https://user-images.githubusercontent.com/4239376/215287841-5a3428f7-4b23-44c5-888d-6e46d8120336.png)
+  - `pv-storage` - the name of PV. In volume mount we declare only PV volume name. In Pod spec we declare mount and claim for this mount (PVC claim)  
+  - `pv-claim` - is the name of attached PVC we created above
+
 </details>
   
 <details>
