@@ -752,3 +752,63 @@ PS Notice, this comman allocates a random portal on all backend nodes, so if you
   * `kubectl edit deployment <YOUR_DEPLOYMENT_NAME>` - edit and save changes
   * `kubectl scale deployment <YOUR_DEPLOYMENT_NAME> --replica=3` - scale out your pods number 
 </details>
+  
+<details>
+<summary>Configure PV HostPath Storage. Configure accessMode and grant access to multiple Pods. Configure Pod</summary>
+  
+  ![image](https://user-images.githubusercontent.com/4239376/215290071-20b2277d-adb1-43c4-9b30-abf1483849c9.png)
+  - A hostPath PersistentVolume uses a file or directory on the Node to emulate network-attached storage.
+  
+  # How to
+  0. goto kubernetes.io (https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/) and need to find PV example, you are not able to create it using `kubectl create pv --dry-run=client` command:
+  ![image](https://user-images.githubusercontent.com/4239376/215290809-17018f9d-2c63-44b0-8c5d-10fa3366baf1.png)
+  1. `vim pv-httpd.yaml`. we need to update our config to allow access from multiple pods. in order to do that we need to use `ReadWriteMany`:
+  ```
+  apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  ```  
+  
+  2. We need to create PV: `kubectl create -f pv-httpd.yaml`  
+  ![image](https://user-images.githubusercontent.com/4239376/215291017-105150d2-91f2-4315-beb9-b866f3a1d78c.png)  
+  3. We need to get PVC example as well from kubernetes.io (https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/) and update it a bit
+  ```
+ apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-httpd
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  ```
+  
+ 4. PVC created and if you get `kubectl get pv -A` you will see binding as well
+ ![image](https://user-images.githubusercontent.com/4239376/215291203-48998705-32bc-4897-8634-751de57df070.png)  
+ ![image](https://user-images.githubusercontent.com/4239376/215291275-4102dd96-3181-46ff-8dd0-f0a4847fc953.png)  
+ 
+ 5. We need to create a pod. To create a pod you cant use `kubectl create --dry-run=client`. Instead, you can use `kubectl run`: `kubectl run pv-pvc-httpd-pod --image=httpd --dry-run=client -o yaml > pv-pvc-httpd-pod.yaml`
+ 6. go to https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-pod and find good example how to attach pvc to pod
+ 7. update our pod config
+ ![image](https://user-images.githubusercontent.com/4239376/215292141-9194a00f-6f3f-44fa-996f-09c0efb415a1.png)
+ - `task-pv-storage` is only for internal use, so we may use any name
+ 8. to verify that everything is fine we need to use `kubectl describe pod task-pv-pod` and our volume is mounted:
+ ![image](https://user-images.githubusercontent.com/4239376/215292258-e8294f8d-17a8-48b6-9788-834dd60f2796.png)
+ 
+  
+  
+</details>
