@@ -553,24 +553,55 @@ The PV is persistent volume and this persistent volume goes to external storage 
 * hostPath: PV uses hostPath a storage solution. In opposite to emptyDir, but hostPath is persistent, emptyDir is temporary.
 * Created PersistentVolume with hostPath means this storage will still be there when Pods which use it are gone.
 </details>
+
+<details>
+<summary>PV and PVC relation. Binding</summary>
+
+  ![image](https://user-images.githubusercontent.com/4239376/215288222-e055af91-1b94-4836-8c1b-f84125d7bfc1.png)
+  - PV `type` - nobody cares about declaring pv type, it could be anything. The only important thing is how you configure PVC
+  - PV and PVC both have same `accessMode`. And this is really what connects PVC to PV and lead to state of `BOUND`.
+  - You may connect PV and PVC which have only identical `accessMode`, it's a glue between PV and PVC
+  
+  ![image](https://user-images.githubusercontent.com/4239376/215288332-08e1da3c-e4fe-4014-bf1a-1f9cd201f6b6.png)  
+  - using `claimName` name you creates a binding between POD and PVC.
+  
+* And that's how Kubernetes provides decoupling
+  ![image](https://user-images.githubusercontent.com/4239376/215288437-9ca2460e-600e-4911-9154-93525dd9b068.png)
+</details>
   
 <details>
 <summary>PVC. Persistent Volume Claims. Connect Pod to PVC.</summary>
 
-* `kubectl get pvc` - to get all pvcs.
-
-  ![image](https://user-images.githubusercontent.com/4239376/215287667-7cf1e595-0f86-45d9-b669-656ea228b3b6.png)
+* `kubectl get pvc` - to get all pvcs:  
+![image](https://user-images.githubusercontent.com/4239376/215287667-7cf1e595-0f86-45d9-b669-656ea228b3b6.png)
   
-* `kubectl get pv` - after applying `kubectl create -f pvc.yaml` from previous example we see that pv and pvc binding created. 
-* PVC requested 1 GiB. PV has 2GiB in total.
+* `kubectl get pv` - after applying `kubectl create -f pvc.yaml` from previous example we see that pv and pvc binding created   
+* PVC requested 1 GiB. PV has 2GiB in total:  
   ![image](https://user-images.githubusercontent.com/4239376/215287756-49f32d8d-b794-4d42-9c9c-7b27b795fd5c.png)
 
-* we can connect Pod to PVC.
+* we can connect Pod to PVC:  
   ![image](https://user-images.githubusercontent.com/4239376/215287841-5a3428f7-4b23-44c5-888d-6e46d8120336.png)
   - `pv-storage` - the name of PV. In volume mount we declare only PV volume name. In Pod spec we declare mount and claim for this mount (PVC claim)  
   - `pv-claim` - is the name of attached PVC we created above
-
 </details>
+  
+<details>
+<summary>PV-PVC Demo using NFS PV</summary>
+
+  * PV config  
+  ![image](https://user-images.githubusercontent.com/4239376/215288767-328bddc2-ac37-493b-b50e-9efb8284486c.png)  
+
+  * to configure NFS storage you need `nfs-utils` in linux and some linux-related + firewall configuration to give readWrite access to nfs server and storage  
+  * PVC config  
+  ![image](https://user-images.githubusercontent.com/4239376/215288944-469a546b-0d31-4e49-91be-e50bcfbec475.png)   
+
+  * Pod config with 2 containers each of them connects to PV using PVC   
+  ![image](https://user-images.githubusercontent.com/4239376/215289151-bd98c953-5120-40be-bb0e-2b08352da2cd.png)  
+
+  
+</details>
+
+  
   
 <details>
 <summary>Kubernetes Persistent Storages. Volumes. Azure Shared Disks</summary>
