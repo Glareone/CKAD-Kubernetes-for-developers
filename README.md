@@ -803,7 +803,7 @@ spec:
  
  5. We need to create a pod. To create a pod you cant use `kubectl create --dry-run=client`. Instead, you can use `kubectl run`: `kubectl run pv-pvc-httpd-pod --image=httpd --dry-run=client -o yaml > pv-pvc-httpd-pod.yaml`
  6. go to https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-pod and find good example how to attach pvc to pod
- 7. update our pod config
+ 7. update our pod config  
  ![image](https://user-images.githubusercontent.com/4239376/215292141-9194a00f-6f3f-44fa-996f-09c0efb415a1.png)
  - `task-pv-storage` is only for internal use, so we may use any name
  8. to verify that everything is fine we need to use `kubectl describe pod task-pv-pod` and our volume is mounted:
