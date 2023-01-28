@@ -767,15 +767,15 @@ PS Notice, this comman allocates a random portal on all backend nodes, so if you
   apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume
+  name: pv-volume
   labels:
     type: local
 spec:
   storageClassName: manual
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
     path: "/mnt/data"
   ```  
@@ -787,7 +787,7 @@ spec:
  apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pv-httpd
+  name: pvc-httpd
 spec:
   storageClassName: manual
   accessModes:
