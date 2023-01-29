@@ -617,6 +617,29 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 
 </details>
 
+# Probes. Probe types: exec, httpGet, tcpSocket. Liveness Probe. Readiness Probe
+<details>
+<summary>General information. Example</summary>
+
+# Probe types
+![image](https://user-images.githubusercontent.com/4239376/215339051-1b83bfeb-bf99-4d6e-9700-ae0ba98ab7b3.png)
+
+
+# readinessProbe in Pod specification
+![image](https://user-images.githubusercontent.com/4239376/215339005-f45c0d56-7d1b-4857-b5e2-13f3013bb491.png)
+
+* this command check in period of 10 seconds that the file is available by this route. After creating pod, Pod will start, but we will see `0\1 READY` because readinessProbe doesnt see the file.
+* changing the file route to excisting file 
+![image](https://user-images.githubusercontent.com/4239376/215339672-5b26a90e-562f-4985-9600-73acd3c24b60.png)
+
+* you cannot edit pod directly using `kubectl edit`. Kubernetes will not let you do that. Instead you need to use `kubectl replace -f`
+
+# tcpSocket example. Readiness and Liveness probes
+![image](https://user-images.githubusercontent.com/4239376/215339939-e994f95d-0b44-4cf9-9f09-840573345b27.png)
+
+
+</details>
+
 # Exam. Tip & Tricks.
   
 Lots of Service \ NetworkPolicy \ Deployment examples you could find here: [HUGE PACK OF REAL EXAMPLES](https://github.com/Glareone/Certified-Kubernetes-Application-Developer) 
