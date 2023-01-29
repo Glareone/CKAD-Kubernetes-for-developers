@@ -645,6 +645,7 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 </details>
 
 # Exam. Tip & Tricks.
+![image](https://user-images.githubusercontent.com/4239376/215342207-e0d2f09e-1acb-4b68-a7a2-35170888492f.png)
   
 Lots of Service \ NetworkPolicy \ Deployment examples you could find here: [HUGE PACK OF REAL EXAMPLES](https://github.com/Glareone/Certified-Kubernetes-Application-Developer) 
 
