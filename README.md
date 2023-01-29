@@ -4,6 +4,7 @@ This repository contains materials prepared by myself and collected over the int
 # Recommended video course and Examples:
 [Pluralsight: Kubernetes for developers](https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents)    
 Video Course with a good intro about Docker and Docker runtime: [Oreilly CKAD: Certified Kubernetes Application Developer](https://learning.oreilly.com/videos/certified-kubernetes-application/9780136677628)  
+Extra projects from **CNCF** Cloud-Native Computing Foundation (where Kubernetes and ArgoCD also belong): https://www.cncf.io/projects/  
 Lots of Service \ NetworkPolicy \ Deployment [EXAMPLES](https://github.com/Glareone/Certified-Kubernetes-Application-Developer) 
 
 # Docker Intro and useful materials
