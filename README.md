@@ -625,6 +625,9 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 # Probe types
 ![image](https://user-images.githubusercontent.com/4239376/215339051-1b83bfeb-bf99-4d6e-9700-ae0ba98ab7b3.png)
 
+# Readiness vs Liveness
+  * readiness probe is useful to organize Pod ordering creation. Create App once web-server is running (you may find an example in exam tips)
+  * Liveness helps you identify whether your app works fine or not
 
 # readinessProbe in Pod specification
 ![image](https://user-images.githubusercontent.com/4239376/215339005-f45c0d56-7d1b-4857-b5e2-13f3013bb491.png)
@@ -832,7 +835,13 @@ spec:
  - `task-pv-storage` is only for internal use, so we may use any name
  8. to verify that everything is fine we need to use `kubectl describe pod task-pv-pod` and our volume is mounted:
  ![image](https://user-images.githubusercontent.com/4239376/215292258-e8294f8d-17a8-48b6-9788-834dd60f2796.png)
- 
+</details>
   
+<details>
+<summary>Create a Pod with 2 containers as a sidecar (Start Pods in order), Readiness. app container starts once nginx (web-server) container started</summary>
+  
+  ![image](https://user-images.githubusercontent.com/4239376/215340898-8f45c5b7-46b6-4318-b951-116d93134f68.png)
+
+  * nginx as a sidecar, app as busybox.
   
 </details>
